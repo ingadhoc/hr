@@ -30,6 +30,7 @@
     "description": """
 Timesheet Balance
 =================
+TODO add description
     """,
     "depends": [
         "hr_timesheet_sheet",
