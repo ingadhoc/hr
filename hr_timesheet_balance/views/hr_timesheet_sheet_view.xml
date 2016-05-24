@@ -14,7 +14,9 @@
 			<field name="arch" type="xml">
 				<field name="total_difference" position="after">				
 					<field name="theoretical_hours" widget="float_time"/>				
-					<field name="theoretical_difference" widget="float_time"/>
+                    <field name="theoretical_difference" widget="float_time"/>
+                    <field name="description"/>
+					<field name="note"/>
 				</field>				
 			</field>
 		</record>
@@ -34,6 +36,7 @@
                 <field name="total_difference" position="after">
                     <field name="theoretical_hours" widget="float_time" groups="base.group_hr_attendance" sum="Total"/>
                     <field name="theoretical_difference" widget="float_time" groups="base.group_hr_attendance" sum="Total"/>
+                    <field name="description"/>
                 </field>
 			</field>
 		</record>

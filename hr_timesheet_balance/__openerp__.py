@@ -20,7 +20,7 @@
 ##############################################################################
 {
     "name": "Timesheet Balance",
-    'version': '8.0.0.0.0',
+    'version': '8.0.0.1.0',
     'category': 'Human Resources',
     'sequence': 14,
     'author':  'ADHOC SA',
