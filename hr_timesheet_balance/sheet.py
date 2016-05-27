@@ -13,6 +13,8 @@ class sheet(models.Model):
         compute='_get_theoretical_difference',
         store=True
     )
+    description = fields.Char('Description')
+    note = fields.Text('Note')
 
     @api.one
     @api.depends(
