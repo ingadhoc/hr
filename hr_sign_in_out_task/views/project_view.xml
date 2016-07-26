@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+	
+		<record model="ir.ui.view" id="hr_timesheet_sheet_form_view_inh">
+			<field name="name">project.project.inh</field>
+			<field name="model">project.project</field>
+			<field name="inherit_id" ref="project.edit_project"/>
+			<field name="arch" type="xml">
+				 <field name="privacy_visibility" position="after">				
+					<field name="timesheet_task_required"/>
+				</field>				
+			</field>
+		</record>
+
+	</data>
+</openerp>
