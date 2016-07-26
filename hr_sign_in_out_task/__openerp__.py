@@ -33,7 +33,8 @@ Hr sign in out task
 
     """,
     "depends": [
-        'hr_timesheet_task', 'project'],
+        'hr_timesheet_task',
+        'account_contract_project'],
     'external_dependencies': {
     },
     "data": [
