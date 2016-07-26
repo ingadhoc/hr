@@ -1,0 +1,1 @@
+OCA/hr-timesheet https://github.com/OCA/hr-timesheet.git
