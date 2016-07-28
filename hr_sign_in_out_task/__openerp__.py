@@ -20,7 +20,7 @@
 ##############################################################################
 {
     "name": "Hr sign in out task",
-    'version': '8.0.0.0.0',
+    'version': '8.0.0.1.0',
     'category': 'Human Resources',
     'sequence': 14,
     'author': 'ADHOC SA',
@@ -34,7 +34,8 @@ Hr sign in out task
     """,
     "depends": [
         'hr_timesheet_task',
-        'account_contract_project'],
+        'account_contract_project',
+        'sale_service'],
     'external_dependencies': {
     },
     "data": [
