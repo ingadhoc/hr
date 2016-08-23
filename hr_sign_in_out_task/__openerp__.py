@@ -20,7 +20,7 @@
 ##############################################################################
 {
     "name": "Hr sign in out task",
-    'version': '8.0.0.1.0',
+    'version': '9.0.1.0.0',
     'category': 'Human Resources',
     'sequence': 14,
     'author': 'ADHOC SA',
@@ -46,7 +46,7 @@ Hr sign in out task
     ],
     'test': [
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': False,
 }
