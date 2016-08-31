@@ -27,11 +27,6 @@
     'website': 'www.adhoc.com.ar',
     'license': 'AGPL-3',
     'summary': '',
-    "description": """
-Timesheet Balance
-=================
-TODO add description
-    """,
     "depends": [
         "hr_timesheet_sheet",
     ],
@@ -44,7 +39,7 @@ TODO add description
     ],
     'test': [
     ],
-    'installable': False,
+    'installable': True,
     'auto_install': False,
     'application': False,
 }
