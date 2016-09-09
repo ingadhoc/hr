@@ -2,7 +2,7 @@
 from openerp import fields, models
 
 
-class project(models.Model):
+class Project(models.Model):
     _inherit = "project.project"
 
     timesheet_task_required = fields.Boolean(
