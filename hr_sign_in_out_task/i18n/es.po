@@ -1,19 +1,42 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_sign_in_out_task
-#
+# * hr_sign_in_out_task
+# 
+# Translators:
+# Juan José Scarafía <scarafia.juanjose@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-26 13:20+0000\n"
-"PO-Revision-Date: 2016-07-26 13:20+0000\n"
-"Last-Translator: <>\n"
-"Language-Team: \n"
+"POT-Creation-Date: 2016-10-11 20:21+0000\n"
+"PO-Revision-Date: 2016-10-11 20:21+0000\n"
+"Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2016\n"
+"Language-Team: Spanish (https://www.transifex.com/adhoc/teams/46451/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: hr_sign_in_out_task
+#: field:project.project,amount_invoiced:0
+msgid "Invoiced Amount"
+msgstr ""
+
+#. module: hr_sign_in_out_task
+#: help:project.project,amount_max:0
+msgid "Keep empty if this contract is not limited to a total fixed price."
+msgstr ""
+
+#. module: hr_sign_in_out_task
+#: field:project.project,amount_max:0
+msgid "Max. Invoice Price"
+msgstr ""
+
+#. module: hr_sign_in_out_task
+#: field:project.project,pricelist_id:0
+msgid "Pricelist"
+msgstr ""
 
 #. module: hr_sign_in_out_task
 #: model:ir.model,name:hr_sign_in_out_task.model_project_project
@@ -26,7 +49,38 @@ msgid "Sign Out By Project"
 msgstr "Salir por proyecto"
 
 #. module: hr_sign_in_out_task
+#: field:hr.sign.out.project,task_id:0
+msgid "Task"
+msgstr ""
+
+#. module: hr_sign_in_out_task
+#: help:project.project,pricelist_id:0
+msgid ""
+"The product to invoice is defined on the employee form, the price will be "
+"deducted by this pricelist on the product."
+msgstr ""
+
+#. module: hr_sign_in_out_task
+#: field:project.project,to_invoice:0
+msgid "Timesheet Invoicing Ratio"
+msgstr ""
+
+#. module: hr_sign_in_out_task
+#: field:hr.sign.out.project,timesheet_task_required:0
 #: field:project.project,timesheet_task_required:0
 msgid "Timesheet Task Required"
 msgstr "Parte de horas de tarea requerida"
 
+#. module: hr_sign_in_out_task
+#: help:project.project,amount_invoiced:0
+msgid "Total invoiced"
+msgstr ""
+
+#. module: hr_sign_in_out_task
+#: help:project.project,to_invoice:0
+msgid ""
+"You usually invoice 100% of the timesheets. But if you mix fixed price and "
+"timesheet invoicing, you may use another ratio. For instance, if you do a "
+"20% advance invoice (fixed price, based on a sales order), you should "
+"invoice the rest on timesheet with a 80% ratio."
+msgstr ""
