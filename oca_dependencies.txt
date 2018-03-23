@@ -1,2 +1,0 @@
-hr-timesheet
-account-analytic
