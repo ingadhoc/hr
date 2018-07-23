@@ -28,6 +28,7 @@
     'summary': '',
     "depends": [
         "hr_timesheet_sheet",
+        "hr_attendance",
     ],
     'external_dependencies': {
     },
