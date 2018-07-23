@@ -14,7 +14,11 @@
 Timesheet UX
 ============
 
-#. 
+#. Add pivot and graph view to timesheets
+#. Use timesheet menu as default one on the app (first one)
+#. Add fields for total (timesheet, attendance, theorical, etc)
+#. Add description and notes
+#. Add link from timesheets to timesheet vs attendance analysis
 
 Installation
 ============

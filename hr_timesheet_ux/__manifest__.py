@@ -18,7 +18,7 @@
 #
 ##############################################################################
 {
-    "name": "Timesheet Balance",
+    "name": "Timesheet UX",
     'version': '11.0.1.0.0',
     'category': 'Human Resources',
     'sequence': 14,
@@ -32,7 +32,7 @@
     'external_dependencies': {
     },
     "data": [
-        'views/hr_timesheet_sheet_view.xml',
+        'views/hr_timesheet_sheet_views.xml',
     ],
     'demo': [
     ],
