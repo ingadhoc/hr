@@ -5,7 +5,7 @@
         <field name="sequence" eval="5"/>
     </record>
 
-    <record model="ir.actions.act_window" id="hr_timesheet_sheet.hr_timesheet_sheet_action">
+    <record model="ir.actions.act_window" id="hr_timesheet_sheet.act_hr_timesheet_sheet_form">
         <field name="view_mode">tree,form,pivot,graph</field>
     </record>
 
