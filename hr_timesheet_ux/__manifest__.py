@@ -34,6 +34,7 @@
     },
     "data": [
         'views/hr_timesheet_sheet_views.xml',
+        'views/account_analytic_line_views.xml',
     ],
     'demo': [
     ],
