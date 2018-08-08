@@ -38,7 +38,7 @@ class HrTimesheetSheet(models.Model):
             rec.attendance_ids = rec.env['hr.attendance'].search([
                 ('employee_id', '=', rec.employee_id.id),
                 ('check_in', '>=', rec.date_start),
-                ('check_out', '<=', rec.date_end),
+                ('check_in', '<=', rec.date_end),
             ])
             rec.attendance_count = len(rec.attendance_ids)
 
