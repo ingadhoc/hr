@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="hr_timesheet.timesheet_menu_activity_all" model="ir.ui.menu" >
+        <field name="groups_id" eval="[(6,0, [ref('base.group_no_one')])]"/>
+    </record>
+
+    <record id="hr_timesheet.timesheet_menu_activity_mine" model="ir.ui.menu" >
+        <field name="groups_id" eval="[(6,0, [ref('base.group_no_one')])]"/>
+    </record>
+
+</odoo>
+

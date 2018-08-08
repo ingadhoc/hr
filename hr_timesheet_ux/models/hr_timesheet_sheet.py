@@ -1,4 +1,4 @@
-from odoo import fields, models, api
+from odoo import fields, models, api, _
 
 
 class HrTimesheetSheet(models.Model):
@@ -38,7 +38,7 @@ class HrTimesheetSheet(models.Model):
             rec.attendance_ids = rec.env['hr.attendance'].search([
                 ('employee_id', '=', rec.employee_id.id),
                 ('check_in', '>=', rec.date_start),
-                ('check_out', '<=', rec.date_end),
+                ('check_in', '<=', rec.date_end),
             ])
             rec.attendance_count = len(rec.attendance_ids)
 
@@ -57,3 +57,35 @@ class HrTimesheetSheet(models.Model):
         for rec in self:
             rec.theoretical_difference = rec.total_timesheet - \
                 rec.theoretical_hours
+
+    @api.multi
+    def get_employee_attendance(self):
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'name': _('Attendances'),
+            'res_model': 'hr.attendance',
+            'view_type': 'form',
+            'view_mode': 'tree,form',
+            'domain': [('id', 'in', self.attendance_ids.ids)],
+            'context': {'search_default_employee_id': self.employee_id.id},
+        }
+
+    @api.multi
+    def get_employee_attendance_timesheet_report(self):
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'name': _('HR Timesheet/Attendance Report'),
+            'res_model': 'hr.timesheet.attendance.report',
+            'view_mode': 'pivot',
+            'context': {
+                'search_default_user_id': self.employee_id.user_id.id,
+                'pivot_column_groupby': [],
+                'pivot_measures': ['total_attendance', 'total_timesheet',
+                                   'total_difference'],
+                'pivot_row_groupby': ['user_id', 'date:day'],
+            },
+            'domain': [('date', '>=', self.date_start),
+                       ('date', '<=', self.date_end)],
+        }

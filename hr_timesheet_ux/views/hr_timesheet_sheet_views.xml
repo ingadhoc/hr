@@ -16,15 +16,14 @@
         <field name="arch" type="xml">
             <div class="oe_title" position="before">
                 <div class="oe_button_box" name="button_box">
-                    <button type="action"
+                    <button type="object"
                         class="oe_stat_button" icon="fa-users"
-                        name="%(hr_attendance.hr_attendance_action_employee)d">
+                        name="get_employee_attendance">
                         <field name="attendance_count" widget="statinfo" string="Attendances"/>
                     </button>
-                    <button type="action"
+                    <button type="object"
                         class="oe_stat_button" icon="fa-clock-o"
-                        name="%(hr_timesheet_attendance.action_hr_timesheet_attendance_report)d"
-                        context="{'search_default_user_id': employee_id}">
+                        name="get_employee_attendance_timesheet_report">
                         <span class="o_stat_text">Attendances vs Timesheet</span>
                     </button>
                 </div>
