@@ -34,6 +34,7 @@
     "data": [
         'views/ir_ui_menu.xml',
         'views/hr_attendance_views.xml',
+        'views/hr_timesheet_attendance_report_views.xml',
     ],
     'demo': [
     ],

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="action_hr_timesheet_attendance_report_user_week" model="ir.actions.act_window">
+        <field name="name">My Timesheet / Attendance</field>
+        <field name="res_model">hr.timesheet.attendance.report</field>
+        <field name="view_mode">pivot</field>
+        <field name="context">{
+            'search_default_week': True,
+            'search_default_user_id': uid,
+            'pivot_column_groupby': [],
+            'pivot_measures': ['total_attendance', 'total_timesheet', 'total_difference'],
+            'pivot_row_groupby': ['date:day'],
+        }</field>
+    </record>
+
+    <menuitem id="menu_hr_timesheet_attendance_report_user_week"
+                parent="hr_timesheet.menu_hr_time_tracking"
+                action="action_hr_timesheet_attendance_report_user_week"
+                />
+
+</odoo>
