@@ -32,7 +32,7 @@
     'external_dependencies': {
     },
     "data": [
-        'views/account_analytic_line_views.xml',
+        'views/ir_ui_menu.xml',
     ],
     'demo': [
     ],
