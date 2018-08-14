@@ -1,6 +1,6 @@
 from datetime import datetime
 from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
-from odoo import models, fields, api
+from odoo import models, fields
 
 
 class HrAttendance(models.Model):

@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
-from odoo import fields, models, api, _
+from odoo import fields, models, api
+
 
 class AccountAnalyticLine(models.Model):
 
@@ -21,7 +22,8 @@ class AccountAnalyticLine(models.Model):
                 ('employee_id', '=', rec.employee_id.id),
                 ('date', '=', rec.date),
             ])
-            total_time_register = sum(total_time_register.mapped('unit_amount'))
+            total_time_register = sum(
+                total_time_register.mapped('unit_amount'))
             current_worked_hours = sum(attendances.mapped(
                 'current_worked_hours'))
             rec.unit_amount = (current_worked_hours - total_time_register)
