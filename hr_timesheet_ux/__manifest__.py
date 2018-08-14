@@ -27,13 +27,11 @@
     'license': 'AGPL-3',
     'summary': '',
     "depends": [
-        "hr_timesheet_sheet",
         "hr_attendance",
     ],
     'external_dependencies': {
     },
     "data": [
-        'views/hr_timesheet_sheet_views.xml',
         'views/account_analytic_line_views.xml',
     ],
     'demo': [
