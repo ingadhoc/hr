@@ -27,7 +27,7 @@
     'license': 'AGPL-3',
     'summary': '',
     "depends": [
-        "hr_attendance",
+        "hr_timesheet_attendance",
     ],
     'external_dependencies': {
     },
