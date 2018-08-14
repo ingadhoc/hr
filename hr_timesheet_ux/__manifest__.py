@@ -33,6 +33,7 @@
     },
     "data": [
         'views/ir_ui_menu.xml',
+        'views/hr_attendance_views.xml',
     ],
     'demo': [
     ],
