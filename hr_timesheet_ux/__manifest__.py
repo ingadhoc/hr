@@ -19,7 +19,7 @@
 ##############################################################################
 {
     "name": "Timesheet UX",
-    'version': '11.0.1.0.0',
+    'version': '11.0.1.1.0',
     'category': 'Human Resources',
     'sequence': 14,
     'author': 'ADHOC SA',
@@ -27,14 +27,14 @@
     'license': 'AGPL-3',
     'summary': '',
     "depends": [
-        "hr_timesheet_sheet",
-        "hr_attendance",
+        "hr_timesheet_attendance",
     ],
     'external_dependencies': {
     },
     "data": [
-        'views/hr_timesheet_sheet_views.xml',
-        'views/account_analytic_line_views.xml',
+        'views/ir_ui_menu.xml',
+        'views/hr_attendance_views.xml',
+        'views/hr_timesheet_attendance_report_views.xml',
     ],
     'demo': [
     ],
