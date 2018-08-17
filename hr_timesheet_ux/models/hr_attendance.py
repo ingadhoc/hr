@@ -8,6 +8,7 @@ class HrAttendance(models.Model):
     _inherit = "hr.attendance"
 
     current_worked_hours = fields.Float(
+        string="Service Hours",
         compute='_compute_current_worked_hours',
     )
 
