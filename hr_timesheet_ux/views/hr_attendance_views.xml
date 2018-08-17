@@ -8,9 +8,35 @@
         <field name="mode">primary</field>
         <field name="arch" type="xml">
             <field name="check_out" position="after">
-                <field name="current_worked_hours" string="Worked Hours" sum="Total" widget="float_time"/>
+                <field name="worked_hours" sum="Total" widget="float_time"/>
+                <field name="current_worked_hours" sum="Total service" widget="float_time"/>
             </field>
         </field>
+    </record>
+
+   <record id="hr_attendance_view_filter" model="ir.ui.view">
+        <field name="name">hr.attendance.filter</field>
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.hr_attendance_view_filter"/>
+        <field name="arch" type="xml">
+            <filter domain="[('employee_id.user_id.id', '=', uid)]" position="attributes">
+                <attribute name="name">my_attendances</attribute>
+            </filter>
+            <filter name="today" position="after">
+                <filter name="this_week" string="This Week" domain="[
+                    '&amp;',
+                    ('check_in', '>=', (context_today() + relativedelta(weeks=-1,days=1,weekday=0)).strftime('%Y-%m-%d 00:00:00')),
+                    ('check_in', '&lt;=', (context_today() + relativedelta(weekday=6)).strftime('%Y-%m-%d 23:59:59')),]"/>
+            </filter>
+            <filter name="groupby_name" position="after">
+                <filter name="week" string="Week" context="{'group_by':'check_in:week'}"/>
+                <filter name="day" string="Day" context="{'group_by':'check_in:day'}"/>
+            </filter>
+        </field>
+    </record>
+
+    <record id="hr_attendance.hr_attendance_action" model="ir.actions.act_window">
+        <field name="context">{"search_default_my_attendances": 1, "search_default_today": 1}</field>
     </record>
 
     <record id="hr_attendance_action" model="ir.actions.act_window">
@@ -18,7 +44,7 @@
         <field name="res_model">hr.attendance</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,kanban,form</field>
-        <field name="context">{"search_default_today":1}</field>
+        <field name="context">{"search_default_today":1,"search_default_my_attendances": 1}</field>
         <field name="search_view_id" ref="hr_attendance.hr_attendance_view_filter"/>
         <field name="view_ids" eval="[(5, 0, 0),
 (0, 0, {'view_mode': 'tree', 'view_id': ref('view_attendance_tree')}),
