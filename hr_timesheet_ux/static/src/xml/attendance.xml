@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+
+    <t t-extend="HrAttendanceMyMainMenu">
+        <t t-jquery="i[class='fa fa-sign-out btn-primary o_hr_attendance_sign_in_out_icon']" t-operation="attributes">
+            <attribute name="class">fa fa-sign-out btn-warning o_hr_attendance_sign_in_out_icon</attribute>
+        </t>
+    </t>
+
+</templates>

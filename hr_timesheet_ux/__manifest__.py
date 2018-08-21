@@ -36,6 +36,10 @@
         'views/hr_attendance_views.xml',
         'views/hr_timesheet_attendance_report_views.xml',
     ],
+    'qweb': [
+        "static/src/xml/attendance.xml",
+    ],
+
     'demo': [
     ],
     'test': [
