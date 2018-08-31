@@ -10,9 +10,9 @@
    :target: https://www.gnu.org/licenses/agpl
    :alt: License: AGPL-3
 
-============
-Timesheet UX
-============
+=======================
+Attendance Timesheet UX
+=======================
 
 #. Add pivot and graph view to timesheets
 #. Use timesheet menu as default one on the app (first one)
