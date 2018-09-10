@@ -30,3 +30,15 @@ class AccountAnalyticLine(models.Model):
             current_worked_hours = sum(attendances.mapped(
                 'current_worked_hours'))
             rec.unit_amount = (current_worked_hours - total_time_register)
+
+    @api.onchange('project_id')
+    def onchange_project_id(self):
+        """ Only filter by tasks that are in not folded stages.
+        """
+        res = super(AccountAnalyticLine, self).onchange_project_id()
+
+        if isinstance(res, (dict,)) and res.get('domain', False):
+            task_domain = res.get('domain').get('task_id', [])
+            res['domain']['task_id'] = task_domain + [
+                ('stage_id.fold', '=', False)]
+        return res
