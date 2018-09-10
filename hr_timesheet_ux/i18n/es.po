@@ -1,0 +1,107 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_timesheet_ux
+# 
+# Translators:
+# Katherine Zaoral <katherine.zaoral@gmail.com>, 2018
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-23 20:01+0000\n"
+"PO-Revision-Date: 2018-08-23 20:01+0000\n"
+"Last-Translator: Katherine Zaoral <katherine.zaoral@gmail.com>, 2018\n"
+"Language-Team: Spanish (https://www.transifex.com/adhoc/teams/46451/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: hr_timesheet_ux
+#: model:ir.model,name:hr_timesheet_ux.model_account_analytic_line
+msgid "Analytic Line"
+msgstr "Cuenta Analítica"
+
+#. module: hr_timesheet_ux
+#: model:ir.model,name:hr_timesheet_ux.model_hr_attendance
+msgid "Attendance"
+msgstr "Asistencia"
+
+#. module: hr_timesheet_ux
+#: model:ir.ui.menu,name:hr_timesheet_ux.menu_hr_attendance_my_attendances
+msgid "Check In / Check Out"
+msgstr "Entrada / Salida"
+
+#. module: hr_timesheet_ux
+#: model:ir.ui.view,arch_db:hr_timesheet_ux.hr_attendance_view_filter
+#: model:ir.ui.view,arch_db:hr_timesheet_ux.hr_timesheet_line_search
+msgid "Day"
+msgstr "Día"
+
+#. module: hr_timesheet_ux
+#: model:ir.ui.view,arch_db:hr_timesheet_ux.hr_timesheet_line_search
+msgid "Month"
+msgstr "Mes"
+
+#. module: hr_timesheet_ux
+#: model:ir.actions.act_window,name:hr_timesheet_ux.hr_attendance_action
+#: model:ir.ui.menu,name:hr_timesheet_ux.my_hr_attendance
+msgid "My Attendances"
+msgstr "Mis asistencias"
+
+#. module: hr_timesheet_ux
+#: model:ir.actions.act_window,name:hr_timesheet_ux.action_hr_timesheet_attendance_report_user_week
+#: model:ir.ui.menu,name:hr_timesheet_ux.menu_hr_timesheet_attendance_report_user_week
+msgid "My Timesheet / Attendance"
+msgstr "Mis Parte de Horas / Asistencias"
+
+#. module: hr_timesheet_ux
+#: model:ir.actions.act_window,help:hr_timesheet_ux.hr_attendance_action
+msgid ""
+"Please make sure you're using the correct filter if you expected to see any."
+msgstr ""
+"Por favor asegúrate de estar usando el filtro correcto si esperas ver alguno"
+
+#. module: hr_timesheet_ux
+#: model:ir.model.fields,field_description:hr_timesheet_ux.field_hr_attendance_current_worked_hours
+msgid "Service Hours"
+msgstr "Horas de Servicio"
+
+#. module: hr_timesheet_ux
+#: model:ir.ui.view,arch_db:hr_timesheet_ux.hr_attendance_view_filter
+msgid "This Week"
+msgstr "Esta Semana"
+
+#. module: hr_timesheet_ux
+#: model:ir.ui.view,arch_db:hr_timesheet_ux.hr_timesheet_line_search
+msgid "Today"
+msgstr "Hoy"
+
+#. module: hr_timesheet_ux
+#: model:ir.ui.view,arch_db:hr_timesheet_ux.view_attendance_tree
+msgid "Total"
+msgstr "Total"
+
+#. module: hr_timesheet_ux
+#: model:ir.ui.view,arch_db:hr_timesheet_ux.view_attendance_tree
+msgid "Total service"
+msgstr "Servicio total"
+
+#. module: hr_timesheet_ux
+#: model:ir.ui.view,arch_db:hr_timesheet_ux.hr_attendance_view_filter
+#: model:ir.ui.view,arch_db:hr_timesheet_ux.hr_timesheet_line_search
+msgid "Week"
+msgstr "Semana"
+
+#. module: hr_timesheet_ux
+#: model:ir.actions.act_window,help:hr_timesheet_ux.hr_attendance_action
+msgid "Your attendance records will be displayed here."
+msgstr "Tus registros de asistencias serán mostrados acá"
+
+#. module: hr_timesheet_ux
+#. openerp-web
+#: code:addons/hr_timesheet_ux/static/src/xml/attendance.xml:6
+#, python-format
+msgid "fa fa-sign-out btn-warning o_hr_attendance_sign_in_out_icon"
+msgstr "fa fa-sign-out btn-warning o_hr_attendance_sign_in_out_icon"
