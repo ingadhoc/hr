@@ -21,6 +21,8 @@ Attendance Timesheet UX
 #. Add link from timesheets to timesheet vs attendance analysis
 #. My Timesheets/All Timesheets odoo menus are set visible only in developer
    mode.
+#. Do not let to create new projects or new tasks from timesheets form and list
+   view.
 
 Installation
 ============
