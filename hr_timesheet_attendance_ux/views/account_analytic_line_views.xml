@@ -5,20 +5,4 @@
         <field name="groups_id" eval="[(6,0, [ref('base.group_no_one')])]"/>
     </record>
 
-    <record id="hr_timesheet_line_search" model="ir.ui.view">
-        <field name="name">account.analytic.line.search</field>
-        <field name="model">account.analytic.line</field>
-        <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_search"/>
-        <field name="arch" type="xml">
-            <filter name="week" position="before">
-                <filter name="today" string="Today" domain="[('date', '=', context_today().strftime('%Y-%m-%d'))]"/>
-            </filter>
-            <group position="inside">
-                <filter name="month" string="Month" context="{'group_by':'date'}"/>
-                <filter name="week" string="Week" context="{'group_by':'date:week'}"/>
-                <filter name="day" string="Day" context="{'group_by':'date:day'}"/>
-            </group>
-        </field>
-    </record>
-
 </odoo>

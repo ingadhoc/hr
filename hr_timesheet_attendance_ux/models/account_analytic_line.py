@@ -1,6 +1,5 @@
-from datetime import datetime, timedelta
-from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
-from odoo import fields, models, api
+from datetime import timedelta
+from odoo import models, api
 
 
 class AccountAnalyticLine(models.Model):
@@ -13,13 +12,12 @@ class AccountAnalyticLine(models.Model):
             ['employee_id', 'user_id']).get('employee_id')
         hr_attendance = self.env['hr.attendance']
         for rec in self:
-            init = datetime.strptime(rec.date, DEFAULT_SERVER_DATE_FORMAT)
-            end = init + timedelta(hours=23, minutes=59, seconds=59)
+            end = rec.date + timedelta(hours=23, minutes=59, seconds=59)
             employee_id = rec.employee_id.id or user_employee
             attendances = hr_attendance.search([
                 ('employee_id', '=', employee_id),
-                ('check_in', '>=', fields.Datetime.to_string(init)),
-                ('check_in', '<=', fields.Datetime.to_string(end)),
+                ('check_in', '>=', rec.date),
+                ('check_in', '<=', end),
             ])
             total_time_register = self.search([
                 ('employee_id', '=', employee_id),
@@ -35,7 +33,7 @@ class AccountAnalyticLine(models.Model):
     def onchange_project_id(self):
         """ Only filter by tasks that are in not folded stages.
         """
-        res = super(AccountAnalyticLine, self).onchange_project_id()
+        res = super().onchange_project_id()
 
         if isinstance(res, (dict,)) and res.get('domain', False):
             task_domain = res.get('domain').get('task_id', [])

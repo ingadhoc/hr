@@ -29,8 +29,6 @@
     "depends": [
         "hr_timesheet_attendance",
     ],
-    'external_dependencies': {
-    },
     "data": [
         'views/account_analytic_line_views.xml',
         'views/hr_attendance_views.xml',
@@ -39,12 +37,7 @@
     'qweb': [
         "static/src/xml/attendance.xml",
     ],
-
-    'demo': [
-    ],
-    'test': [
-    ],
-    'installable': False,
+    'installable': True,
     'auto_install': False,
     'application': False,
 }
