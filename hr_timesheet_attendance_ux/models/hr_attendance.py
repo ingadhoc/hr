@@ -14,10 +14,7 @@ class HrAttendance(models.Model):
 
     def _compute_current_worked_hours(self):
         for attendance in self:
-            check_out_datetime = datetime.strptime(
-                attendance.check_out or fields.Datetime.now(),
-                DEFAULT_SERVER_DATETIME_FORMAT)
-            check_in_datetime = datetime.strptime(
-                attendance.check_in, DEFAULT_SERVER_DATETIME_FORMAT)
+            check_out_datetime = attendance.check_out or fields.Datetime.now()
+            check_in_datetime = attendance.check_in
             delta = check_out_datetime - check_in_datetime
             attendance.current_worked_hours = delta.total_seconds() / 3600.0

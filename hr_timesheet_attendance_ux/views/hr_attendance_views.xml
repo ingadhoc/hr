@@ -19,18 +19,8 @@
         <field name="model">hr.attendance</field>
         <field name="inherit_id" ref="hr_attendance.hr_attendance_view_filter"/>
         <field name="arch" type="xml">
-            <filter domain="[('employee_id.user_id.id', '=', uid)]" position="attributes">
+            <filter name="my_attendances" domain="[('employee_id.user_id.id', '=', uid)]" position="attributes">
                 <attribute name="name">my_attendances</attribute>
-            </filter>
-            <filter name="today" position="after">
-                <filter name="this_week" string="This Week" domain="[
-                    '&amp;',
-                    ('check_in', '>=', (context_today() + relativedelta(weeks=-1,days=1,weekday=0)).strftime('%Y-%m-%d 00:00:00')),
-                    ('check_in', '&lt;=', (context_today() + relativedelta(weekday=6)).strftime('%Y-%m-%d 23:59:59')),]"/>
-            </filter>
-            <filter name="groupby_name" position="after">
-                <filter name="week" string="Week" context="{'group_by':'check_in:week'}"/>
-                <filter name="day" string="Day" context="{'group_by':'check_in:day'}"/>
             </filter>
         </field>
     </record>
