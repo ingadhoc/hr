@@ -1,6 +1,5 @@
-from datetime import datetime, timedelta
-from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
-from odoo import fields, models, api
+from datetime import timedelta
+from odoo import models, api
 
 
 class AccountAnalyticLine(models.Model):
