@@ -7,8 +7,7 @@
         <field name="inherit_id" ref="hr_attendance.view_attendance_tree"/>
         <field name="mode">primary</field>
         <field name="arch" type="xml">
-            <field name="check_out" position="after">
-                <field name="worked_hours" sum="Total" widget="float_time"/>
+            <field name="worked_hours" position="after">
                 <field name="current_worked_hours" sum="Total service" widget="float_time"/>
             </field>
         </field>
