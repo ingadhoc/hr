@@ -3,7 +3,8 @@
 # 	* hr_timesheet_attendance_ux
 # 
 # Translators:
-# Juan José Scarafía <scarafia.juanjose@gmail.com>, 2020
+# Irina Fedulova <istartlin@gmail.com>, 2020
+# Ekaterina <nawsikaya@bk.ru>, 2020
 # 
 msgid ""
 msgstr ""
@@ -11,62 +12,63 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-18 19:48+0000\n"
 "PO-Revision-Date: 2020-03-18 19:48+0000\n"
-"Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2020\n"
-"Language-Team: Spanish (https://www.transifex.com/adhoc/teams/46451/es/)\n"
+"Last-Translator: Ekaterina <nawsikaya@bk.ru>, 2020\n"
+"Language-Team: Russian (https://www.transifex.com/adhoc/teams/46451/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #. module: hr_timesheet_attendance_ux
 #: model:ir.model,name:hr_timesheet_attendance_ux.model_account_analytic_line
 msgid "Analytic Line"
-msgstr "Cuenta Analítica"
+msgstr "Аналитика"
 
 #. module: hr_timesheet_attendance_ux
 #: model:ir.model,name:hr_timesheet_attendance_ux.model_hr_attendance
 msgid "Attendance"
-msgstr "Asistencia"
+msgstr "Посещаемость"
 
 #. module: hr_timesheet_attendance_ux
 #: model:ir.ui.menu,name:hr_timesheet_attendance_ux.menu_hr_attendance_my_attendances
 msgid "Check In / Check Out"
-msgstr "Entrada / Salida"
+msgstr "Записаться/ Отменить запись"
 
 #. module: hr_timesheet_attendance_ux
 #: model:ir.actions.act_window,name:hr_timesheet_attendance_ux.hr_attendance_action
 #: model:ir.ui.menu,name:hr_timesheet_attendance_ux.my_hr_attendance
 msgid "My Attendances"
-msgstr "Mis asistencias"
+msgstr "Моя Посещаемость"
 
 #. module: hr_timesheet_attendance_ux
 #: model:ir.actions.act_window,name:hr_timesheet_attendance_ux.action_hr_timesheet_attendance_report_user_week
 #: model:ir.ui.menu,name:hr_timesheet_attendance_ux.menu_hr_timesheet_attendance_report_user_week
 msgid "My Timesheet / Attendance"
-msgstr "Mis Parte de Horas / Asistencias"
+msgstr "Мое расписание / Посещаемость"
 
 #. module: hr_timesheet_attendance_ux
 #: model_terms:ir.actions.act_window,help:hr_timesheet_attendance_ux.hr_attendance_action
 msgid ""
 "Please make sure you're using the correct filter if you expected to see any."
 msgstr ""
-"Por favor asegúrate de estar usando el filtro correcto si esperas ver alguno"
+"Убедитесь, что вы используете правильный фильтр, чтобы найти нужную "
+"информацию."
 
 #. module: hr_timesheet_attendance_ux
 #: model:ir.model.fields,field_description:hr_timesheet_attendance_ux.field_hr_attendance__current_worked_hours
 msgid "Service Hours"
-msgstr "Horas de Servicio"
+msgstr "Часы работы"
 
 #. module: hr_timesheet_attendance_ux
 #: model_terms:ir.ui.view,arch_db:hr_timesheet_attendance_ux.view_attendance_tree
 msgid "Total service"
-msgstr "Servicio total"
+msgstr "Все услуги"
 
 #. module: hr_timesheet_attendance_ux
 #: model_terms:ir.actions.act_window,help:hr_timesheet_attendance_ux.hr_attendance_action
 msgid "Your attendance records will be displayed here."
-msgstr "Tus registros de asistencias serán mostrados acá"
+msgstr "Здесь будут отображаться ваши записи о посещаемости."
 
 #. module: hr_timesheet_attendance_ux
 #. openerp-web
