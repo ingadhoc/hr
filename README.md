@@ -4,6 +4,7 @@
 [![Code Climate](https://codeclimate.com/github/ingadhoc/hr/badges/gpa.svg)](https://codeclimate.com/github/ingadhoc/hr)
 
 zaoral was here!
+twice
 
 # ADHOC HR
 
