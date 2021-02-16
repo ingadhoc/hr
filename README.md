@@ -5,6 +5,7 @@
 
 Odoo Human Ressources Addons
 
+
 [//]: # (addons)
 [//]: # (end addons)
 

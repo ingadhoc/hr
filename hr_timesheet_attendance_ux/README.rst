@@ -19,8 +19,7 @@ Attendance Timesheet UX
 #. Add fields for total (timesheet, attendance, theorical, etc)
 #. Add description and notes
 #. Add link from timesheets to timesheet vs attendance analysis
-#. My Timesheets/All Timesheets odoo menus are set visible only in developer
-   mode.
+#. My Timesheets/All Timesheets odoo menus are set visible only in developer mode.
 
 Installation
 ============
