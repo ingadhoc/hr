@@ -1,10 +1,13 @@
 from datetime import timedelta
-from odoo import models, api
+from odoo import models, api, fields
 
 
 class AccountAnalyticLine(models.Model):
 
     _inherit = "account.analytic.line"
+
+    task_id = fields.Many2one(
+        domain="[('company_id', '=', company_id), ('project_id.allow_timesheets', '=', True), ('project_id', '=?', project_id), ('stage_id.fold', '=', False)]")
 
     @api.onchange('employee_id', 'date')
     def onchange_compute_hours(self):
@@ -28,15 +31,3 @@ class AccountAnalyticLine(models.Model):
             current_worked_hours = sum(attendances.mapped(
                 'current_worked_hours'))
             rec.unit_amount = (current_worked_hours - total_time_register)
-
-    @api.onchange('project_id')
-    def onchange_project_id(self):
-        """ Only filter by tasks that are in not folded stages.
-        """
-        res = super().onchange_project_id()
-
-        if isinstance(res, (dict,)) and res.get('domain', False):
-            task_domain = res.get('domain').get('task_id', [])
-            res['domain']['task_id'] = task_domain + [
-                ('stage_id.fold', '=', False)]
-        return res
