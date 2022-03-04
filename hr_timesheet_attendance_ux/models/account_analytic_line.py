@@ -22,6 +22,7 @@ class AccountAnalyticLine(models.Model):
             total_time_register = self.search([
                 ('employee_id', '=', employee_id),
                 ('date', '=', rec.date),
+                ('holiday_id', '=', None),
             ])
             total_time_register = sum(
                 total_time_register.mapped('unit_amount'))
