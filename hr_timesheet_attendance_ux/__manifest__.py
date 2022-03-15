@@ -19,7 +19,7 @@
 ##############################################################################
 {
     "name": "Attendance Timesheet UX",
-    'version': '13.0.1.0.0',
+    'version': '13.0.1.1.0',
     'category': 'Human Resources',
     'sequence': 14,
     'author': 'ADHOC SA',
@@ -28,6 +28,7 @@
     'summary': '',
     "depends": [
         "hr_timesheet_attendance",
+        "hr_holidays",
     ],
     "data": [
         'views/account_analytic_line_views.xml',
