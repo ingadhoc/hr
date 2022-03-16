@@ -19,11 +19,15 @@ class AccountAnalyticLine(models.Model):
                 ('check_in', '>=', rec.date),
                 ('check_in', '<=', end),
             ])
-            total_time_register = self.search([
+            domain = [
                 ('employee_id', '=', employee_id),
-                ('date', '=', rec.date),
-                ('holiday_id', '=', None),
-            ])
+                ('date', '=', rec.date)]
+            if 'holiday_id' in self._fields:
+                domain.append(('holiday_id', '=', None))
+                # si existe el campo holiday_id el cual es agregado por el modulo
+                # hr_holidays, si existe entonces se agrega al dominio para que no
+                # tenga en cuenta las lineas que son por ausencia
+            total_time_register = self.search(domain)
             total_time_register = sum(
                 total_time_register.mapped('unit_amount'))
             current_worked_hours = sum(attendances.mapped(
