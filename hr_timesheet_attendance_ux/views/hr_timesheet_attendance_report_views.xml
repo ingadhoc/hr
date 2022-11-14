@@ -6,7 +6,6 @@
         <field name="res_model">hr.timesheet.attendance.report</field>
         <field name="view_mode">pivot</field>
         <field name="context">{
-            'search_default_week': True,
             'search_default_user_id': uid,
             'pivot_column_groupby': [],
             'pivot_measures': ['total_attendance', 'total_timesheet', 'total_difference'],
