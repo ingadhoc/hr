@@ -18,21 +18,21 @@
         <field name="model">hr.attendance</field>
         <field name="inherit_id" ref="hr_attendance.hr_attendance_view_filter"/>
         <field name="arch" type="xml">
-            <filter domain="[('employee_id.user_id.id', '=', uid)]" position="attributes">
+            <filter domain="[('employee_id.user_id', '=', uid)]" position="attributes">
                 <attribute name="name">my_attendances</attribute>
             </filter>
         </field>
     </record>
 
     <record id="hr_attendance.hr_attendance_action" model="ir.actions.act_window">
-        <field name="context">{"search_default_my_attendances": 1, "search_default_today": 1}</field>
+        <field name="context">{"search_default_my_attendances": 1}</field>
     </record>
 
     <record id="hr_attendance_action" model="ir.actions.act_window">
         <field name="name">My Attendances</field>
         <field name="res_model">hr.attendance</field>
         <field name="view_mode">tree,kanban,form</field>
-        <field name="context">{"search_default_today":1,"search_default_my_attendances": 1}</field>
+        <field name="context">{"search_default_my_attendances": 1}</field>
         <field name="search_view_id" ref="hr_attendance.hr_attendance_view_filter"/>
         <field name="view_ids" eval="[(5, 0, 0),
 (0, 0, {'view_mode': 'tree', 'view_id': ref('view_attendance_tree')}),
