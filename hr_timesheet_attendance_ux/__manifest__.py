@@ -19,7 +19,7 @@
 ##############################################################################
 {
     "name": "Attendance Timesheet UX",
-    'version': "15.0.1.0.0",
+    'version': "15.0.1.1.0",
     'category': 'Human Resources',
     'sequence': 14,
     'author': 'ADHOC SA',
