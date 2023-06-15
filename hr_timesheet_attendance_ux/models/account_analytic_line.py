@@ -17,7 +17,7 @@ class AccountAnalyticLine(models.Model):
         for rec in self:
             end = rec.date + timedelta(hours=23, minutes=59, seconds=59)
             employee_id = rec.employee_id.id or user_employee
-            attendances = hr_attendance.search([
+            attendances = hr_attendance.sudo().search([
                 ('employee_id', '=', employee_id),
                 ('check_in', '>=', rec.date),
                 ('check_in', '<=', end),
