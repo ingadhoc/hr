@@ -34,9 +34,7 @@
         <field name="view_mode">tree,kanban,form</field>
         <field name="context">{"search_default_my_attendances": 1}</field>
         <field name="search_view_id" ref="hr_attendance.hr_attendance_view_filter"/>
-        <field name="view_ids" eval="[(5, 0, 0),
-(0, 0, {'view_mode': 'tree', 'view_id': ref('view_attendance_tree')}),
-(0, 0, {'view_mode': 'form', 'view_id': False})]"/>
+        <field name="view_ids" eval="[(5, 0, 0), (0, 0, {'view_mode': 'tree', 'view_id': ref('view_attendance_tree')}), (0, 0, {'view_mode': 'form', 'view_id': False})]"/>
         <field name="help" type="html">
             <p>Your attendance records will be displayed here.</p>
             <p>Please make sure you're using the correct filter if you expected to see any.</p>
@@ -51,6 +49,6 @@
     <menuitem id="menu_hr_attendance_my_attendances"
         name="Check In / Check Out" parent="hr_timesheet.menu_hr_time_tracking"
         sequence="10"
-        groups="hr_attendance.group_hr_attendance" action="hr_attendance.hr_attendance_action_my_attendances"/>
+        groups="hr_attendance.group_hr_attendance_officer" action="hr_attendance_action"/>
 
 </odoo>
