@@ -19,7 +19,7 @@
 ##############################################################################
 {
     "name": "Attendance Timesheet UX",
-    'version': "16.0.1.0.0",
+    'version': "17.0.1.0.0",
     'category': 'Human Resources',
     'sequence': 14,
     'author': 'ADHOC SA',
@@ -34,7 +34,7 @@
         'views/hr_attendance_views.xml',
         'views/hr_timesheet_attendance_report_views.xml',
     ],
-    'installable': False,
+    'installable': True,
     'auto_install': False,
     'application': False,
 }
