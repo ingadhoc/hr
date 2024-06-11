@@ -1,76 +1,69 @@
 from odoo import api, fields, models, _
-from datetime import timedelta, datetime
+from datetime import timedelta
 import calendar
 
 class HrLeave(models.Model):
     _inherit = 'hr.leave'
 
-    def ultimo_dia_del_mes(self, fecha):
-        # Obtenemos ulitmo día del mes a partir de la fecha y usando la funcion monthrange:
-        year = fecha.year
-        month = fecha.month
-        ultimo_dia = calendar.monthrange(year, month)[1]
-        # Creamos una nueva fecha con el último día del mes, manteniendo los demas datos de la fecha:
-        return fecha.replace(day=ultimo_dia)
+    def get_last_day_of_month(self, date):
+        """Get last day of the month from the given date using monthrange."""
+        last_day = calendar.monthrange(date.year, date.month)[1]
+        return date.replace(day=last_day)
 
     def split_days(self, rec):
-        registros_nuevos = []
+        """Split leave days across months."""
+        new_records = []
         date_from = rec['request_date_from']
         original_date_to = rec['request_date_to']
 
         while date_from <= original_date_to:
-            #calculamos el último día del mes llamando a ese método, para luego compararlo con la fecha de fin de ausencia, original_date_to
-            fin_mes = self.ultimo_dia_del_mes(date_from)
-            #si la fecha de fin de ausencia, original_date_to está dentro del mes de inicio:
-            if original_date_to <= fin_mes:
-                #guardamos las fechas del único registro a crear
-                registros_nuevos.append({
+            # get last day of the month
+            end_of_month = self.get_last_day_of_month(date_from)
+            if original_date_to <= end_of_month:
+                # save the dates of the single record to be created
+                new_records.append({
                     'request_date_from': date_from,
                     'request_date_to': original_date_to,
                 })
                 break
-                # date_from = original_date_to
             else:
-                # guardamos las fechas de cada registro a crear hasta llegar a la fecha de fin de ausencia, original_date_to
-                registros_nuevos.append({ 
+                # save the dates of each record to be created until reaching the end date of the leave, original_date_to
+                new_records.append({ 
                     'request_date_from': date_from,
-                    'request_date_to': fin_mes,
+                    'request_date_to': end_of_month,
                 })
-                # pasamos al primer dia del mes siguiente para volver a entrar en el while:
-                date_from = fin_mes + timedelta(days=1)
+                date_from = end_of_month + timedelta(days=1)
 
-        return registros_nuevos
+        return new_records
 
     
     @api.model_create_multi
     def create(self, vals_list):
-        nuevos_vals_list = []
+        new_vals_list = []
         for vals in vals_list:
             date_from = vals.get('request_date_from')
             date_to = vals.get('request_date_to')
 
             if date_from and date_to:
-                # Convertir a objetos datetime si son cadenas (no debería, pero si no lo hacía no funcionaba)
+                # convert to datetime objects if they are strings
                 if isinstance(date_from, str):
                     date_from = fields.Datetime.from_string(date_from)
                 if isinstance(date_to, str):
-                    date_to = fields.Datetime.from_string(date_to)
+                    date_to = fields.Datetime.from_string(date_to)                
             
-            # comparamos la fecha de fin de la ausencia con la fecha de ultimo día del mes
-            # Si la ausencia termina en otro mes más adelante, llamamos al metodo split_days() para que calcule las fechas en las que dividir las ausencias:
-            if date_to > self.ultimo_dia_del_mes(date_from):
-                registros_divididos = self.split_days({
+            # if the leave ends in a different month, call the split_days() method to get the dates for splitting the leaves
+            if date_to > self.get_last_day_of_month(date_from):
+                split_records = self.split_days({
                     'request_date_from' : date_from,
                     'request_date_to' : date_to,
                 })
-                # creamos una copia de los valores originales para cada registro dividido:
-                for rec in registros_divididos:
-                    nuevo_vals = vals.copy()
-                    nuevo_vals.update(rec)
-                    nuevos_vals_list.append(nuevo_vals)
-            #si la ausencia termina en el mismo mes en el que comienza, solo se agrega el registro original vals a la lista nueva de vals
+                # for each record generated in split_days, copy the original vals, and update with the dates of the record rec, adding them to a new list
+                for rec in split_records:
+                    new_vals = vals.copy()
+                    new_vals.update(rec)
+                    new_vals_list.append(new_vals)
             else:
-                nuevos_vals_list.append(vals)
+                new_vals_list.append(vals)
 
-        return super().create(nuevos_vals_list)
+        return super().create(new_vals_list)
     
