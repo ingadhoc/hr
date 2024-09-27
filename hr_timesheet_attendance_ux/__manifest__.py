@@ -34,7 +34,7 @@
         'views/hr_attendance_views.xml',
         'views/hr_timesheet_attendance_report_views.xml',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': False,
 }
