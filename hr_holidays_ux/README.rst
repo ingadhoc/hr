@@ -13,9 +13,8 @@
 ============
 Holidays UX
 ============
-This module splits time off records by month 
 
-#. ....
+This module splits time off records by month 
 
 
 Installation
