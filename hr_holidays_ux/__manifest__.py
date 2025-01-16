@@ -18,24 +18,21 @@
 #
 ##############################################################################
 {
-    'name': 'Holidays UX',
-    'version': "18.0.1.0.0",
-    'category': 'Human Resources',
-    'sequence': 14,
-    'summary': 'Split time off records by month',
-    'author': 'ADHOC SA',
-    'website': 'www.adhoc.com.ar',
-    'license': 'AGPL-3',
-    'images': [
+    "name": "Holidays UX",
+    "version": "18.0.1.0.0",
+    "category": "Human Resources",
+    "sequence": 14,
+    "summary": "Split time off records by month",
+    "author": "ADHOC SA",
+    "website": "www.adhoc.com.ar",
+    "license": "AGPL-3",
+    "images": [],
+    "depends": [
+        "hr_holidays",
     ],
-    'depends': [
-        'hr_holidays',
-    ],
-    'data': [
-    ],
-    'demo': [
-    ],
-    'installable': True,
-    'auto_install': False,
-    'application': False,
+    "data": [],
+    "demo": [],
+    "installable": True,
+    "auto_install": False,
+    "application": False,
 }

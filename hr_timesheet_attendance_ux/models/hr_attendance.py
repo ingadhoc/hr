@@ -1,13 +1,12 @@
-from odoo import models, fields
+from odoo import fields, models
 
 
 class HrAttendance(models.Model):
-
     _inherit = "hr.attendance"
 
     current_worked_hours = fields.Float(
         string="Service Hours",
-        compute='_compute_current_worked_hours',
+        compute="_compute_current_worked_hours",
     )
 
     def _compute_current_worked_hours(self):
