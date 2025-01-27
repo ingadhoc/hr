@@ -18,7 +18,7 @@ exclude: |
 
 # Keep in sync with .github/workflows/pre-commit.yml
 default_language_version:
-    python: python3.10
+    python: python3
 
 repos:
 
