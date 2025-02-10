@@ -14,7 +14,9 @@
 Holidays UX
 ============
 
-This module splits time off records by month
+This module:
+# Splits time off records by month
+# Improves visibility of massive leave allocations feature for hr managers adding a button on the new allocation form
 
 
 Installation
