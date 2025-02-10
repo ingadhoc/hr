@@ -19,7 +19,7 @@
 ##############################################################################
 {
     "name": "Holidays UX",
-    "version": "18.0.1.0.0",
+    "version": "18.0.1.1.0",
     "category": "Human Resources",
     "sequence": 14,
     "summary": "Split time off records by month",
@@ -30,8 +30,9 @@
     "depends": [
         "hr_holidays",
     ],
-    "data": [],
-    "demo": [],
+    "data": [
+        "views/hr_leave_allocation_views.xml",
+    ],
     "installable": True,
     "auto_install": False,
     "application": False,

@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+    <record id="action_hr_leave_allocation_generate_multi_wizard" model="ir.actions.act_window">
+        <field name="name">Multiple Requests</field>
+        <field name="res_model">hr.leave.allocation.generate.multi.wizard</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="hr_leave_allocation_view_form_manager_inherited" model="ir.ui.view">
+        <field name="name">hr.leave.allocation.view.form.manager.inherited</field>
+        <field name="model">hr.leave.allocation</field>
+        <field name="inherit_id" ref="hr_holidays.hr_leave_allocation_view_form_manager"/>
+        <field name="arch" type="xml">
+            <field name="state" position="before">
+                <button string="Multiple Requests"
+                    name="%(action_hr_leave_allocation_generate_multi_wizard)d"
+                    type="action"
+                    class="oe_highlight"/>
+            </field>
+        </field>
+    </record>
+</odoo>
