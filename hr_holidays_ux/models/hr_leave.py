@@ -7,6 +7,8 @@ from odoo import api, fields, models
 class HrLeave(models.Model):
     _inherit = "hr.leave"
 
+    state = fields.Selection(selection_add=[("pre-validate", "Pre-Approved")])
+
     def get_last_day_of_month(self, date):
         """Get last day of the month from the given date using monthrange."""
         last_day = calendar.monthrange(date.year, date.month)[1]
@@ -73,3 +75,22 @@ class HrLeave(models.Model):
                 new_vals_list.append(vals)
 
         return super().create(new_vals_list)
+
+    def action_approve(self, check_state=True):
+        res = super().action_approve()
+        if (
+            self.state == "validate"
+            and not self.supported_attachment_ids
+            and self.holiday_status_id.pre_approved_instance
+        ):
+            self.state = "pre-validate"
+        return res
+
+    def action_validate(self, check_state=True):
+        res = super().action_validate()
+        if not self.supported_attachment_ids and self.holiday_status_id.pre_approved_instance:
+            self.state = "pre-validate"
+        return res
+
+    def action_post_approve(self):
+        self.state = "validate"

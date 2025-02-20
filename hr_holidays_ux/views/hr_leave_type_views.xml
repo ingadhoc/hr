@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="edit_holiday_status_form_ux" model="ir.ui.view">
+        <field name="name">hr.leave.type.form</field>
+        <field name="model">hr.leave.type</field>
+        <field name="inherit_id" ref="hr_holidays.edit_holiday_status_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='support_document']" position="after">
+                <field name="pre_approved_instance" invisible="not support_document"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

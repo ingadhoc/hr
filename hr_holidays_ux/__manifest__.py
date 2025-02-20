@@ -32,7 +32,10 @@
     ],
     "data": [
         "views/hr_leave_allocation_views.xml",
+        "views/hr_leave_type_views.xml",
+        "views/hr_leave_views.xml",
     ],
+    "demo": [],
     "installable": True,
     "auto_install": False,
     "application": False,
