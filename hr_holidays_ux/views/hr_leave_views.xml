@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_leave_view_form_ux" model="ir.ui.view">
+        <field name="name">hr.leave.form</field>
+        <field name="model">hr.leave</field>
+        <field name="inherit_id" ref="hr_holidays.hr_leave_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='supported_attachment_ids']" position="attributes">
+                <attribute name="invisible">
+                    not leave_type_support_document or state not in ('confirm', 'validate1','pre-validate')
+                </attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_approve']" position="after">
+                <button string="Approve" name="action_post_approve" type="object" class="oe_highlight" invisible="state != 'pre-validate' or not supported_attachment_ids "/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_hr_holidays_filter_ux" model="ir.ui.view">
+        <field name="name">hr.holidays.filter</field>
+        <field name="model">hr.leave</field>
+        <field name="inherit_id" ref="hr_holidays.view_hr_holidays_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='validated']" position="before">
+                <filter string="Pre-Approved" domain="[('state', '=', 'pre-validate')]" name="pre-validated"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
