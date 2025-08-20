@@ -19,7 +19,13 @@
 ##############################################################################
 {
     "name": "Attendance Timesheet UX",
+<<<<<<< HEAD
     'version': "16.0.1.0.0",
+||||||| parent of f361e76... temp
+    'version': "15.0.1.0.0",
+=======
+    'version': "15.0.1.1.0",
+>>>>>>> f361e76... temp
     'category': 'Human Resources',
     'sequence': 14,
     'author': 'ADHOC SA',
