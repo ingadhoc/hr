@@ -3,15 +3,15 @@
 # 	* hr_timesheet_attendance_ux
 # 
 # Translators:
-# Juan José Scarafía <scarafia.juanjose@gmail.com>, 2025
+# ADHOC - Bot <transbot@adhoc.com.ar>, 2025
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 18.0+e\n"
+"Project-Id-Version: Odoo Server 19.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-23 16:06+0000\n"
-"PO-Revision-Date: 2024-11-14 20:20+0000\n"
-"Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2025\n"
+"POT-Creation-Date: 2025-10-28 12:53+0000\n"
+"PO-Revision-Date: 2025-10-28 12:53+0000\n"
+"Last-Translator: ADHOC - Bot <transbot@adhoc.com.ar>, 2025\n"
 "Language-Team: Spanish (https://app.transifex.com/adhoc/teams/46451/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,6 +33,18 @@ msgstr "Asistencia"
 #: model:ir.ui.menu,name:hr_timesheet_attendance_ux.menu_hr_attendance_my_attendances
 msgid "Check In / Check Out"
 msgstr "Entrada / Salida"
+
+#. module: hr_timesheet_attendance_ux
+#: model:ir.model.fields,field_description:hr_timesheet_attendance_ux.field_account_analytic_line__display_name
+#: model:ir.model.fields,field_description:hr_timesheet_attendance_ux.field_hr_attendance__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: hr_timesheet_attendance_ux
+#: model:ir.model.fields,field_description:hr_timesheet_attendance_ux.field_account_analytic_line__id
+#: model:ir.model.fields,field_description:hr_timesheet_attendance_ux.field_hr_attendance__id
+msgid "ID"
+msgstr ""
 
 #. module: hr_timesheet_attendance_ux
 #: model:ir.actions.act_window,name:hr_timesheet_attendance_ux.hr_attendance_action
