@@ -15,8 +15,10 @@ Holidays UX
 ============
 
 This module:
-# Splits time off records by month
-# Improves visibility of massive leave allocations feature for hr managers adding a button on the new allocation form
+
+#. Splits time off records by month.
+#. Adds a pre-approved stage for time off requests that require attachments. This allows managers to fully approve the time off once the employee uploads the required document.
+
 
 
 Installation

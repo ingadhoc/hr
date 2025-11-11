@@ -5,8 +5,11 @@
         <field name="model">hr.leave.type</field>
         <field name="inherit_id" ref="hr_holidays.edit_holiday_status_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//label[@for='support_document']" position="after">
+                <label for="pre_approved_instance" class="me-4" string="Pre Approved Instance" invisible="not support_document"/>
+            </xpath>
             <xpath expr="//field[@name='support_document']" position="after">
-                <field name="pre_approved_instance" invisible="not support_document"/>
+                <field name="pre_approved_instance" nolabel="1" invisible="not support_document"/>
             </xpath>
         </field>
     </record>

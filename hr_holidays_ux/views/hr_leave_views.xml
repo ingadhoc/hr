@@ -7,11 +7,11 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='supported_attachment_ids']" position="attributes">
                 <attribute name="invisible">
-                    not leave_type_support_document or state not in ('confirm', 'validate1','pre-validate')
+                    not leave_type_support_document or state not in ('confirm', 'validate1', 'pre-validate')
                 </attribute>
             </xpath>
             <xpath expr="//button[@name='action_approve']" position="after">
-                <button string="Approve" name="action_post_approve" type="object" class="oe_highlight" invisible="state != 'pre-validate' or not supported_attachment_ids "/>
+                <button string="Approve" name="action_post_approve" type="object" class="oe_highlight" invisible="state != 'pre-validate' or not supported_attachment_ids"/>
             </xpath>
         </field>
     </record>
