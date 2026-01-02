@@ -264,14 +264,16 @@ class HrLeave(models.Model):
     def _check_approval_update(self, state, raise_if_not_possible=True):
         """Override to handle pre-validate state transitions."""
         # For transitions from pre-validate state
-        if self.state == "pre-validate" and state == "validate":
-            # Allow transition from pre-validate to validate
-            is_officer = self.env.user.has_group("hr_holidays.group_hr_holidays_user")
-            is_time_off_manager = self.employee_id.leave_manager_id == self.env.user
+        for leave in self:
+            if ((leave.state == "pre-validate" or leave.state == "validate") and state == "confirm") or (
+                leave.state == "confirm" and state == "validate"
+            ):
+                # Allow transition from pre-validate to validate
+                is_officer = self.env.user.has_group("hr_holidays.group_hr_holidays_user")
+                is_time_off_manager = leave.employee_id.leave_manager_id == self.env.user
 
-            if is_officer or is_time_off_manager:
-                return True
-
+                if is_officer or is_time_off_manager:
+                    return True
             if raise_if_not_possible:
                 from odoo.exceptions import UserError
 
