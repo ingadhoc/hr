@@ -265,6 +265,7 @@ class HrLeave(models.Model):
         """Override to handle pre-validate state transitions."""
         # For transitions from pre-validate state
         for leave in self:
+            # Only intercept specific transitions that need special handling
             if ((leave.state == "pre-validate" or leave.state == "validate") and state == "confirm") or (
                 leave.state == "confirm" and state == "validate"
             ):
@@ -273,11 +274,16 @@ class HrLeave(models.Model):
                 is_time_off_manager = leave.employee_id.leave_manager_id == self.env.user
 
                 if is_officer or is_time_off_manager:
-                    return True
-            if raise_if_not_possible:
-                from odoo.exceptions import UserError
+                    continue  # This specific transition is OK, continue checking other records
+                else:
+                    # Not authorized for this specific transition
+                    if raise_if_not_possible:
+                        from odoo.exceptions import UserError
 
-                raise UserError(self.env._("Only a Time Off Officer/Manager can approve a pre-validated leave."))
-            return False
+                        raise UserError(
+                            self.env._("Only a Time Off Officer/Manager can approve a pre-validated leave.")
+                        )
+                    return False
 
+        # For all other transitions (including refuse), delegate to parent
         return super()._check_approval_update(state, raise_if_not_possible)
