@@ -13,17 +13,6 @@
         </field>
     </record>
 
-   <record id="hr_attendance_view_filter" model="ir.ui.view">
-        <field name="name">hr.attendance.filter</field>
-        <field name="model">hr.attendance</field>
-        <field name="inherit_id" ref="hr_attendance.hr_attendance_view_filter"/>
-        <field name="arch" type="xml">
-            <filter domain="[('employee_id.user_id', '=', uid)]" position="attributes">
-                <attribute name="name">my_attendances</attribute>
-            </filter>
-        </field>
-    </record>
-
     <record id="hr_attendance.hr_attendance_action" model="ir.actions.act_window">
         <field name="context">{"search_default_my_attendances": 1}</field>
     </record>
