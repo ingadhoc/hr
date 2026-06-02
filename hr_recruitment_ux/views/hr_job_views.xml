@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="hr_job_form_inherit_recruitment_ux">
+        <field name="name">hr.job.form.inherit.recruitment.ux</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_form"/>
+        <field name="arch" type="xml">
+            <group name="hiring_process" position="inside">
+                <field name="use_rotting_per_job"/>
+                <field name="rotting_threshold_days"
+                    invisible="not use_rotting_per_job"/>
+            </group>
+        </field>
+    </record>
+
+</odoo>

@@ -17,6 +17,9 @@ HR Recruitment UX
 This module adds:
 
 * Automatically archives applicants when they are added to a talent pool
+* Per-vacancy rotting SLA: allows configuring specific "days to rot" on each job position,
+  overriding the stage threshold when needed. When enabled on a vacancy, applicants in that
+  position use the vacancy's threshold instead of the pipeline stage's.
 
 Installation
 ============

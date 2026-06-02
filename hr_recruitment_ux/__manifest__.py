@@ -29,7 +29,9 @@
     "depends": [
         "hr_recruitment",
     ],
-    "data": [],
+    "data": [
+        "views/hr_job_views.xml",
+    ],
     "demo": [],
     "installable": True,
     "auto_install": True,
