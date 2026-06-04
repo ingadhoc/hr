@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="hr_recruitment_stage_form_inherit_ux">
+        <field name="name">hr.recruitment.stage.form.inherit.ux</field>
+        <field name="model">hr.recruitment.stage</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_recruitment_stage_form"/>
+        <field name="arch" type="xml">
+            <field name="rotting_threshold_days" position="after">
+                <field name="use_rotting_per_job" invisible="hired_stage"/>
+            </field>
+            <group name="stage_definition" position="after">
+                <field name="job_rotting_ids"
+                    invisible="not use_rotting_per_job"
+                    nolabel="1">
+                    <list editable="bottom">
+                        <field name="job_id" string="Posición"/>
+                        <field name="rotting_days" string="Días para deteriorarse"/>
+                    </list>
+                </field>
+            </group>
+        </field>
+    </record>
+
+</odoo>
