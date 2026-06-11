@@ -19,7 +19,7 @@
 ##############################################################################
 {
     "name": "Holidays UX",
-    "version": "19.0.1.0.0",
+    "version": "19.0.1.1.0",
     "category": "Human Resources",
     "sequence": 14,
     "summary": "Split time off records by month",
@@ -31,6 +31,7 @@
         "hr_holidays",
     ],
     "data": [
+        "data/ir_actions_server.xml",
         "views/hr_leave_type_views.xml",
         "views/hr_leave_views.xml",
     ],
