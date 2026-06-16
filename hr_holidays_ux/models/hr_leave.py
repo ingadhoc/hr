@@ -237,6 +237,10 @@ class HrLeave(models.Model):
             self.state = "pre-validate"
         return res
 
+    def _validate_leave_request(self):
+        # send_updates=False: suppress Google Calendar invitations to attendees on Google sync
+        return super(HrLeave, self.with_context(send_updates=False))._validate_leave_request()
+
     def action_post_approve(self):
         """Approve a pre-validated leave once documents are uploaded."""
         self.write({"state": "validate"})
