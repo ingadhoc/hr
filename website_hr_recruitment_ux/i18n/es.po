@@ -16,6 +16,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: website_hr_recruitment_ux
-#: website_hr_recruitment_ux/static/src/interactions/hr_recruitment_form.js:0
+#: code:addons/website_hr_recruitment_ux/static/src/interactions/hr_recruitment_form.js:0
 msgid "Please enter a valid phone number."
 msgstr "Por favor ingresá un número de teléfono válido."
