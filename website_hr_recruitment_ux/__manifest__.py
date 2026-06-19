@@ -26,7 +26,6 @@
     "license": "AGPL-3",
     "summary": "Fixes phone field validation in the public job application form",
     "depends": [
-        "hr_recruitment_ux",
         "website_hr_recruitment",
     ],
     "data": [
