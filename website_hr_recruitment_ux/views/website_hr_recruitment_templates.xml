@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Add minimum length to the phone field to block submissions with only a country prefix (e.g. +54) -->
+    <template id="apply_phone_minlength" inherit_id="website_hr_recruitment.apply">
+        <xpath expr="//input[@name='partner_phone']" position="attributes">
+            <attribute name="minlength">7</attribute>
+        </xpath>
+    </template>
+</odoo>
