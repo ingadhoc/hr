@@ -1,13 +1,13 @@
-# Translation of website_hr_recruitment_ux.pot.
-# Copyright (C) 2026 ADHOC SA
-# This file is distributed under the same license as the website_hr_recruitment_ux package.
-#, fuzzy
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_hr_recruitment_ux
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0\n"
+"Project-Id-Version: Odoo Server 19.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-19 00:00+0000\n"
-"PO-Revision-Date: 2026-06-19 00:00+0000\n"
+"POT-Creation-Date: 2026-06-22 15:40+0000\n"
+"PO-Revision-Date: 2026-06-22 15:40+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,6 +16,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: website_hr_recruitment_ux
+#. odoo-javascript
 #: code:addons/website_hr_recruitment_ux/static/src/interactions/hr_recruitment_form.js:0
 msgid "Please enter a valid phone number."
 msgstr ""
