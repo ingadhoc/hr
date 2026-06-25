@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-26 12:53+0000\n"
-"PO-Revision-Date: 2025-11-26 12:53+0000\n"
+"POT-Creation-Date: 2026-06-25 16:07+0000\n"
+"PO-Revision-Date: 2026-06-25 16:07+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -22,12 +22,27 @@ msgstr ""
 
 #. module: hr_holidays_ux
 #: model:ir.model.fields,field_description:hr_holidays_ux.field_hr_leave__display_name
+#: model:ir.model.fields,field_description:hr_holidays_ux.field_hr_leave_allocation__display_name
+#: model:ir.model.fields,field_description:hr_holidays_ux.field_hr_leave_allocation_generate_multi_wizard__display_name
 #: model:ir.model.fields,field_description:hr_holidays_ux.field_hr_leave_type__display_name
 msgid "Display Name"
 msgstr ""
 
 #. module: hr_holidays_ux
+#: model:ir.model,name:hr_holidays_ux.model_hr_leave_allocation_generate_multi_wizard
+msgid "Generate time off allocations for multiple employees"
+msgstr ""
+
+#. module: hr_holidays_ux
+#. odoo-python
+#: code:addons/hr_holidays_ux/wizard/hr_leave_allocation_generate_multi_wizard.py:0
+msgid "Generated Allocations"
+msgstr ""
+
+#. module: hr_holidays_ux
 #: model:ir.model.fields,field_description:hr_holidays_ux.field_hr_leave__id
+#: model:ir.model.fields,field_description:hr_holidays_ux.field_hr_leave_allocation__id
+#: model:ir.model.fields,field_description:hr_holidays_ux.field_hr_leave_allocation_generate_multi_wizard__id
 #: model:ir.model.fields,field_description:hr_holidays_ux.field_hr_leave_type__id
 msgid "ID"
 msgstr ""
@@ -51,8 +66,21 @@ msgid "Pre-Approved"
 msgstr ""
 
 #. module: hr_holidays_ux
+#: model:ir.actions.server,name:hr_holidays_ux.action_reset_allocation_to_confirm
+msgid "Reset to \"To Approve\""
+msgstr ""
+
+#. module: hr_holidays_ux
 #: model:ir.model.fields,field_description:hr_holidays_ux.field_hr_leave__state
 msgid "Status"
+msgstr ""
+
+#. module: hr_holidays_ux
+#. odoo-python
+#: code:addons/hr_holidays_ux/models/hr_leave_allocation.py:0
+msgid ""
+"The following allocations already have leaves taken and cannot be reset:\n"
+"%s"
 msgstr ""
 
 #. module: hr_holidays_ux
@@ -65,6 +93,11 @@ msgstr ""
 #. module: hr_holidays_ux
 #: model:ir.model,name:hr_holidays_ux.model_hr_leave
 msgid "Time Off"
+msgstr ""
+
+#. module: hr_holidays_ux
+#: model:ir.model,name:hr_holidays_ux.model_hr_leave_allocation
+msgid "Time Off Allocation"
 msgstr ""
 
 #. module: hr_holidays_ux
