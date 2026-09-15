@@ -1,3 +1,4 @@
+<<<<<<< 248d1c188a0378198aa2d2ac8d4a7dc8530a47be
 ##############################################################################
 #
 #    Copyright (C) 2026  ADHOC SA  (http://www.adhoc.com.ar)
@@ -40,3 +41,41 @@
     "installable": True,
     "application": False,
 }
+||||||| 173ba4e68d67391f14b5a9eb63950a231ab0cf62
+=======
+##############################################################################
+#
+#    Copyright (C) 2026  ADHOC SA  (http://www.adhoc.com.ar)
+#    All Rights Reserved.
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+{
+    "name": "Website HR Recruitment UX",
+    "version": "18.0.1.0.0",
+    "category": "Human Resources",
+    "summary": "Do not expose the recruiter contact on the public job form",
+    "author": "ADHOC SA",
+    "website": "www.adhoc.com.ar",
+    "license": "AGPL-3",
+    "depends": [
+        "website_hr_recruitment",
+    ],
+    "data": [],
+    "installable": True,
+    "auto_install": True,
+    "application": False,
+}
+>>>>>>> 36aa295c8e4d8720f862c2c9f5456fa0d92219a7
