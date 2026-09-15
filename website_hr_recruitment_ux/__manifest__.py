@@ -24,7 +24,7 @@
     "author": "ADHOC SA",
     "website": "www.adhoc.com.ar",
     "license": "AGPL-3",
-    "summary": "Fixes phone field validation in the public job application form",
+    "summary": "Fixes on the public job application form",
     "depends": [
         "website_hr_recruitment",
     ],
