@@ -174,7 +174,7 @@ class HrLeave(models.Model):
                             # no overlapping records, safe to create
                             base_vals = {
                                 "employee_id": record.employee_id.id,
-                                "holiday_status_id": record.holiday_status_id.id,
+                                "work_entry_type_id": record.work_entry_type_id.id,
                             }
 
                             # add fields that exist in vals or record, safely
@@ -186,8 +186,6 @@ class HrLeave(models.Model):
                                 "date_to",
                                 "name",
                                 "description",
-                                "request_unit_half",
-                                "request_unit_hours",
                             ]
 
                             for field in safe_fields:
@@ -226,14 +224,14 @@ class HrLeave(models.Model):
         if (
             self.state == "validate"
             and not self.supported_attachment_ids
-            and self.holiday_status_id.pre_approved_instance
+            and self.work_entry_type_id.pre_approved_instance
         ):
             self.state = "pre-validate"
         return res
 
     def action_validate(self, check_state=True):
         res = super().action_validate()
-        if not self.supported_attachment_ids and self.holiday_status_id.pre_approved_instance:
+        if not self.supported_attachment_ids and self.work_entry_type_id.pre_approved_instance:
             self.state = "pre-validate"
         return res
 

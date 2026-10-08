@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_work_entry_type_view_form_ux" model="ir.ui.view">
+        <field name="name">hr.work.entry.type.form</field>
+        <field name="model">hr.work.entry.type</field>
+        <field name="inherit_id" ref="hr_holidays.hr_work_entry_type_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='support_document']" position="after">
+                <field name="pre_approved_instance" string="Pre Approved Instance" invisible="not support_document"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
