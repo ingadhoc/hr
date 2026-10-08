@@ -16,7 +16,7 @@ class HrLeaveAllocationGenerateMultiWizard(models.TransientModel):
         hr.leave.allocation.
         """
         self.ensure_one()
-        employees = self._get_employees_from_allocation_mode()
+        employees = self.employee_ids or self.env["hr.employee"].search(self._get_employee_domain())
         vals_list = self._prepare_allocation_values(employees)
         if not vals_list:
             return None
@@ -28,10 +28,14 @@ class HrLeaveAllocationGenerateMultiWizard(models.TransientModel):
             )
             .create(vals_list)
         )
-        accrual_allocations = allocations.filtered(lambda a: a.allocation_type == "accrual")
-        for date_to, allocation in accrual_allocations.grouped("date_to").items():
-            date_to = min(date_to, date.today()) if date_to else False
-            allocation._process_accrual_plans(date_to)
+        accrual_allocations = allocations.filtered("accrual_plan_id")
+        if not self.duration:
+            for date_to, allocation in accrual_allocations.grouped("date_to").items():
+                date_to = min(date_to, date.today()) if date_to else False
+                update_vals = allocation._get_init_accrual_plan_values()
+                update_vals["date_from"] = self.date_from
+                allocation.update(update_vals)
+                allocation._update_accrual(date_to)
         return {
             "type": "ir.actions.act_window",
             "name": self.env._("Generated Allocations"),
