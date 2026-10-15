@@ -42,7 +42,7 @@ To use this module, you need to:
 
 #. An employee requests time off of a type configured with Pre Approved Instance, without a document.
 #. A Time Off Officer or the employee's time off manager approves it: the request goes to Pre-Approved.
-#. The employee uploads the supporting document on the request.
+#. The employee attaches the supporting document in the chatter of the request.
 #. The officer or manager clicks Approve: the request is approved.
 
 If the document is already attached when the request is approved, it skips Pre-Approved.
