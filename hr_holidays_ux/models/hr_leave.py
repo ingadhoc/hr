@@ -219,28 +219,28 @@ class HrLeave(models.Model):
         """Override copy_data to handle leave splitting properly."""
         return super().copy_data(default=default)
 
-    def action_approve(self, check_state=True):
-        res = super().action_approve()
-        if (
-            self.state == "validate"
-            and not self.supported_attachment_ids
-            and self.work_entry_type_id.pre_approved_instance
-        ):
-            self.state = "pre-validate"
-        return res
+    def _get_pre_approved_pending(self):
+        return self.filtered(
+            lambda leave: not leave.supported_attachment_ids and leave.work_entry_type_id.pre_approved_instance
+        )
 
-    def action_validate(self, check_state=True):
-        res = super().action_validate()
-        if not self.supported_attachment_ids and self.work_entry_type_id.pre_approved_instance:
-            self.state = "pre-validate"
+    def _action_validate(self, check_state=True):
+        to_pre_validate = self._get_pre_approved_pending()
+        res = super(HrLeave, self - to_pre_validate)._action_validate(check_state)
+        if to_pre_validate:
+            # time rules run when the leave is fully approved, in action_post_approve
+            to_pre_validate = to_pre_validate.with_context(skip_time_rules=True)
+            super(HrLeave, to_pre_validate)._action_validate(check_state)
+            to_pre_validate.write({"state": "pre-validate"})
         return res
 
     def action_post_approve(self):
         """Approve a pre-validated leave once documents are uploaded."""
-        self.write({"state": "validate"})
+        self.with_context(skip_time_rules=True).write({"state": "validate"})
         self._validate_leave_request()
         if not self.env.context.get("leave_fast_create"):
             self.activity_update()
+        self._trigger_time_rules()
         return True
 
     def _get_next_states_by_state(self):

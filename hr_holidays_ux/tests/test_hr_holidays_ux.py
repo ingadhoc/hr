@@ -1,4 +1,5 @@
 from datetime import date
+from unittest.mock import patch
 
 from odoo.addons.hr_holidays.tests.common import TestHrHolidaysCommon
 from odoo.exceptions import UserError
@@ -99,6 +100,38 @@ class TestHrHolidaysUx(TestHrHolidaysCommon):
         leave.invalidate_recordset()
         self.assertTrue(leave.supported_attachment_ids)
         leave.action_post_approve()
+        self.assertEqual(leave.state, "validate")
+
+    def _attach_document(self, leave):
+        self.env["ir.attachment"].create(
+            {"name": "certificate.txt", "raw": b"doc", "res_model": "hr.leave", "res_id": leave.id}
+        )
+        leave.invalidate_recordset()
+
+    def test_pre_approved_time_rules_run_on_post_approve(self):
+        leave = self._create_leave(date(2027, 3, 8), date(2027, 3, 9), self.pre_approved_type)
+        leave_class = type(self.env["hr.leave"])
+        with patch.object(leave_class, "_trigger_time_rules", autospec=True) as trigger:
+            leave.action_approve()
+            self.assertEqual(leave.state, "pre-validate")
+            # empty recordsets also reach the mixin and are a no-op there
+            self.assertFalse([call.args[0] for call in trigger.call_args_list if call.args[0]])
+            self._attach_document(leave)
+            leave.action_post_approve()
+        self.assertEqual(leave.state, "validate")
+        self.assertEqual([call.args[0] for call in trigger.call_args_list if call.args[0]], [leave])
+
+    def test_approve_in_batch(self):
+        pre_approved = self._create_leave(date(2027, 3, 8), date(2027, 3, 9), self.pre_approved_type)
+        regular = self._create_leave(date(2027, 3, 15), date(2027, 3, 16))
+        (pre_approved | regular).action_approve()
+        self.assertEqual(pre_approved.state, "pre-validate")
+        self.assertEqual(regular.state, "validate")
+
+    def test_approve_with_document_skips_pre_validate(self):
+        leave = self._create_leave(date(2027, 3, 8), date(2027, 3, 9), self.pre_approved_type)
+        self._attach_document(leave)
+        leave.action_approve()
         self.assertEqual(leave.state, "validate")
 
     def test_approve_without_pre_approved_instance(self):
