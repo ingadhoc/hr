@@ -19,7 +19,7 @@
 ##############################################################################
 {
     "name": "Holidays Google Calendar",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Human Resources",
     "summary": "Suppress Google Calendar invitations when approving time off",
     "author": "ADHOC SA",
@@ -31,7 +31,7 @@
     ],
     "data": [],
     "demo": [],
-    "installable": False,
+    "installable": True,
     "auto_install": True,
     "application": False,
 }

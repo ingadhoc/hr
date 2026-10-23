@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-17 15:20+0000\n"
-"PO-Revision-Date: 2026-06-17 15:20+0000\n"
+"POT-Creation-Date: 2026-10-23 18:13+0000\n"
+"PO-Revision-Date: 2026-10-23 18:13+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -19,14 +19,24 @@ msgstr ""
 #. module: hr_holidays_google_calendar
 #: model:ir.model,name:hr_holidays_google_calendar.model_calendar_event
 msgid "Calendar Event"
-msgstr ""
+msgstr "Evento del calendario"
 
 #. module: hr_holidays_google_calendar
 #: model:ir.model.fields,field_description:hr_holidays_google_calendar.field_calendar_event__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nombre en pantalla"
+
+#. module: hr_holidays_google_calendar
+#: model:ir.module.module,shortdesc:base.module_hr_holidays_google_calendar
+msgid "Holidays Google Calendar"
+msgstr "Ausencias Google Calendar"
 
 #. module: hr_holidays_google_calendar
 #: model:ir.model.fields,field_description:hr_holidays_google_calendar.field_calendar_event__id
 msgid "ID"
 msgstr ""
+
+#. module: hr_holidays_google_calendar
+#: model:ir.module.module,summary:base.module_hr_holidays_google_calendar
+msgid "Suppress Google Calendar invitations when approving time off"
+msgstr "Suprime las invitaciones de Google Calendar al aprobar ausencias"
