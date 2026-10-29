@@ -8,7 +8,7 @@ class AccountAnalyticLine(models.Model):
 
     def _domain_task_id(self):
         domain = (
-            "[('company_id', '=', company_id), ('project_id.allow_timesheets', '=', True), "
+            "[('project_id.allow_timesheets', '=', True), "
             "('project_id', '=?', project_id), ('stage_id.fold', '=', False), ('has_template_ancestor', '=', False)"
         )
         # Keep the condition that project_timesheet_holidays adds to the domain this field replaces.
