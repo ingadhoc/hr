@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0+e\n"
+"Project-Id-Version: Odoo Server 20.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-18 17:23+0000\n"
-"PO-Revision-Date: 2026-06-18 17:23+0000\n"
+"POT-Creation-Date: 2026-10-29 14:19+0000\n"
+"PO-Revision-Date: 2026-10-29 14:19+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -17,6 +17,89 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #. module: hr_recruitment_ux
+#: model:ir.module.module,description:base.module_hr_recruitment_ux
+msgid ""
+".. |company| replace:: ADHOC SA\n"
+"\n"
+".. |company_logo| image:: https://raw.githubusercontent.com/ingadhoc/maintainer-tools/master/resources/adhoc-logo.png\n"
+"   :alt: ADHOC SA\n"
+"   :target: https://www.adhoc.com.ar\n"
+"\n"
+".. |icon| image:: https://raw.githubusercontent.com/ingadhoc/maintainer-tools/master/resources/adhoc-icon.png\n"
+"\n"
+".. image:: https://img.shields.io/badge/license-AGPL--3-blue.png\n"
+"   :target: https://www.gnu.org/licenses/agpl\n"
+"   :alt: License: AGPL-3\n"
+"\n"
+"==================\n"
+"HR Recruitment UX\n"
+"==================\n"
+"\n"
+"This module adds:\n"
+"\n"
+"* Automatically archives an applicant when adding it to a talent pool creates a new talent,\n"
+"  and logs an internal note with the pools, the job position and the stage.\n"
+"  Applicants already directly linked to a talent are not archived.\n"
+"* Per-vacancy rotting SLA: allows configuring specific \"days to rot\" on each job position,\n"
+"  overriding the stage threshold when needed. When enabled on a stage, applicants of a\n"
+"  configured position use the position's threshold instead of the stage's.\n"
+"\n"
+"Installation\n"
+"============\n"
+"\n"
+"To install this module, you need to:\n"
+"\n"
+"#. Just install this module\n"
+"\n"
+"Configuration\n"
+"=============\n"
+"\n"
+"To configure this module, you need to:\n"
+"\n"
+"#. Nothing to configure\n"
+"\n"
+"Usage\n"
+"=====\n"
+"\n"
+"To use this module, you need to:\n"
+"\n"
+"#. In debug mode, go to Recruitment > Configuration > Job Positions > Stages and open a stage.\n"
+"#. Enable \"¿Días para deteriorarse por posición?\" and add the job positions with their days to rot.\n"
+"\n"
+".. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas\n"
+"   :alt: Try me on Runbot\n"
+"   :target: http://runbot.adhoc.com.ar/\n"
+"\n"
+"Bug Tracker\n"
+"===========\n"
+"\n"
+"Bugs are tracked on `GitHub Issues\n"
+"<https://github.com/ingadhoc/hr/issues>`_. In case of trouble, please\n"
+"check there if your issue has already been reported. If you spotted it first,\n"
+"help us smashing it by providing a detailed and welcomed feedback.\n"
+"\n"
+"Credits\n"
+"=======\n"
+"\n"
+"Images\n"
+"------\n"
+"\n"
+"* |company| |icon|\n"
+"\n"
+"Contributors\n"
+"------------\n"
+"\n"
+"Maintainer\n"
+"----------\n"
+"\n"
+"|company_logo|\n"
+"\n"
+"This module is maintained by ADHOC SA.\n"
+"\n"
+"To contribute to this module, please visit https://www.adhoc.com.ar.\n"
+msgstr ""
+
+#. module: hr_recruitment_ux
 #: model:ir.model.fields,help:hr_recruitment_ux.field_hr_job_stage_rotting__rotting_days
 msgid "0 = sin deterioro para esta combinación de vacante y etapa."
 msgstr ""
@@ -24,12 +107,12 @@ msgstr ""
 #. module: hr_recruitment_ux
 #: model:ir.model,name:hr_recruitment_ux.model_talent_pool_add_applicants
 msgid "Add applicants to talent pool"
-msgstr ""
+msgstr "Agregar postulantes a la base de talentos"
 
 #. module: hr_recruitment_ux
 #: model:ir.model,name:hr_recruitment_ux.model_hr_applicant
 msgid "Applicant"
-msgstr ""
+msgstr "Postulante"
 
 #. module: hr_recruitment_ux
 #. odoo-python
@@ -42,12 +125,12 @@ msgstr ""
 #. module: hr_recruitment_ux
 #: model:ir.model.fields,field_description:hr_recruitment_ux.field_hr_job_stage_rotting__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creado por"
 
 #. module: hr_recruitment_ux
 #: model:ir.model.fields,field_description:hr_recruitment_ux.field_hr_job_stage_rotting__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creado el"
 
 #. module: hr_recruitment_ux
 #: model:ir.model.fields,field_description:hr_recruitment_ux.field_hr_applicant__display_name
@@ -55,7 +138,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_recruitment_ux.field_hr_recruitment_stage__display_name
 #: model:ir.model.fields,field_description:hr_recruitment_ux.field_talent_pool_add_applicants__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Mostrar nombre"
 
 #. module: hr_recruitment_ux
 #: model:ir.model.fields,field_description:hr_recruitment_ux.field_hr_job_stage_rotting__rotting_days
@@ -79,22 +162,22 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_recruitment_ux.field_hr_recruitment_stage__id
 #: model:ir.model.fields,field_description:hr_recruitment_ux.field_talent_pool_add_applicants__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_recruitment_ux
 #: model:ir.model.fields,field_description:hr_recruitment_ux.field_hr_job_stage_rotting__job_id
 msgid "Job"
-msgstr ""
+msgstr "Puesto"
 
 #. module: hr_recruitment_ux
 #: model:ir.model.fields,field_description:hr_recruitment_ux.field_hr_job_stage_rotting__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Última actualización por"
 
 #. module: hr_recruitment_ux
 #: model:ir.model.fields,field_description:hr_recruitment_ux.field_hr_job_stage_rotting__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Última actualización el"
 
 #. module: hr_recruitment_ux
 #: model_terms:ir.ui.view,arch_db:hr_recruitment_ux.hr_recruitment_stage_form_inherit_ux
@@ -103,13 +186,18 @@ msgstr ""
 
 #. module: hr_recruitment_ux
 #: model:ir.model,name:hr_recruitment_ux.model_hr_recruitment_stage
-msgid "Recruitment Stages"
-msgstr ""
+msgid "Recruitment Stage"
+msgstr "Etapa de reclutamiento"
+
+#. module: hr_recruitment_ux
+#: model:ir.module.module,shortdesc:base.module_hr_recruitment_ux
+msgid "Recruitment UX"
+msgstr "Reclutamiento UX"
 
 #. module: hr_recruitment_ux
 #: model:ir.model.fields,field_description:hr_recruitment_ux.field_hr_job_stage_rotting__stage_id
 msgid "Stage"
-msgstr ""
+msgstr "Etapa"
 
 #. module: hr_recruitment_ux
 #: model:ir.model.constraint,message:hr_recruitment_ux.constraint_hr_job_stage_rotting_unique_job_stage
