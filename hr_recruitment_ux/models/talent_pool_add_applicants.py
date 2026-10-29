@@ -7,8 +7,8 @@ class TalentPoolAddApplicants(models.TransientModel):
     _inherit = "talent.pool.add.applicants"
 
     def _add_applicants_to_pool(self):
-        # Only applicants that super copies into a new talent are archived
-        originals_to_archive = self.applicant_ids.filtered(lambda a: not a.talent_pool_ids and not a.pool_applicant_id)
+        # Applicants already linked to a talent, directly or by email/phone/linkedin, are not archived
+        originals_to_archive = self.applicant_ids.filtered(lambda a: not a.is_applicant_in_pool)
         for applicant in originals_to_archive:
             pool_names = ", ".join(self.talent_pool_ids.mapped("name"))
             applicant.message_post(
