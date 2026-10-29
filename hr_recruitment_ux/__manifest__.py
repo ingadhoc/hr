@@ -19,7 +19,7 @@
 ##############################################################################
 {
     "name": "Recruitment UX",
-    "version": "19.0.1.1.0",
+    "version": "20.0.1.0.0",
     "category": "Human Resources",
     "sequence": 14,
     "author": "ADHOC SA",
@@ -34,7 +34,7 @@
         "views/hr_recruitment_stage_views.xml",
     ],
     "demo": [],
-    "installable": False,
+    "installable": True,
     "auto_install": True,
     "application": False,
 }
