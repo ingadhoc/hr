@@ -7,20 +7,103 @@
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0+e\n"
+"Project-Id-Version: Odoo Server 20.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-28 20:55+0000\n"
-"PO-Revision-Date: 2025-12-11 18:11+0000\n"
+"POT-Creation-Date: 2026-10-29 20:16+0000\n"
+"PO-Revision-Date: 2026-10-29 20:16+0000\n"
 "Last-Translator: BAF <baf@adhoc.inc>\n"
-"Language-Team: Spanish <https://translation.dev-adhoc.com/projects/hr-19-0/"
-"hr-19-0-hr_timesheet_attendance_ux/es/>\n"
+"Language-Team: Spanish <https://translation.dev-adhoc.com/projects/hr-20-0/hr-20-0-hr_timesheet_attendance_ux/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n != 0 && n % 1000000 == 0)"
-" ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n != 0 && n % 1000000 == 0) ? 1 : 2);\n"
 "X-Generator: Weblate 5.10.4\n"
+
+#. module: hr_timesheet_attendance_ux
+#: model:ir.module.module,description:base.module_hr_timesheet_attendance_ux
+msgid ""
+".. |company| replace:: ADHOC SA\n"
+"\n"
+".. |company_logo| image:: https://raw.githubusercontent.com/ingadhoc/maintainer-tools/master/resources/adhoc-logo.png\n"
+"   :alt: ADHOC SA\n"
+"   :target: https://www.adhoc.com.ar\n"
+"\n"
+".. |icon| image:: https://raw.githubusercontent.com/ingadhoc/maintainer-tools/master/resources/adhoc-icon.png\n"
+"\n"
+".. image:: https://img.shields.io/badge/license-AGPL--3-blue.png\n"
+"   :target: https://www.gnu.org/licenses/agpl\n"
+"   :alt: License: AGPL-3\n"
+"\n"
+"=======================\n"
+"Attendance Timesheet UX\n"
+"=======================\n"
+"\n"
+"#. Add link from timesheets to timesheet vs attendance analysis\n"
+"#. Timesheets/All Timesheets odoo menu is set visible only in developer mode.\n"
+"#. When you set the employee or the date of a timesheet, the time spent is\n"
+"   suggested: the attendance hours of that day in the user's timezone (open\n"
+"   attendances count up to now), minus the break, minus the time already\n"
+"   logged that day. Timesheets from time off requests are not counted as\n"
+"   already logged.\n"
+"#. The task selector of a timesheet does not offer tasks in a folded stage or\n"
+"   template tasks.\n"
+"\n"
+"Installation\n"
+"============\n"
+"\n"
+"To install this module, you need to:\n"
+"\n"
+"#. Only need to install the module\n"
+"\n"
+"Configuration\n"
+"=============\n"
+"\n"
+"To configure this module, you need to:\n"
+"\n"
+"#. Nothing to configure\n"
+"\n"
+"Usage\n"
+"=====\n"
+"\n"
+"To use this module, you need to:\n"
+"\n"
+"#. Go to Timesheets > Timesheets > My Timesheet / Attendance to compare your\n"
+"   attendance time with your timesheets, day by day.\n"
+"#. Create a timesheet and check the suggested time spent.\n"
+"\n"
+".. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas\n"
+"   :alt: Try me on Runbot\n"
+"   :target: http://runbot.adhoc.com.ar/\n"
+"\n"
+"Bug Tracker\n"
+"===========\n"
+"\n"
+"Bugs are tracked on `GitHub Issues\n"
+"<https://github.com/ingadhoc/hr/issues>`_. In case of trouble, please\n"
+"check there if your issue has already been reported. If you spotted it first,\n"
+"help us smashing it by providing a detailed and welcomed feedback.\n"
+"\n"
+"Credits\n"
+"=======\n"
+"\n"
+"Images\n"
+"------\n"
+"\n"
+"* |company| |icon|\n"
+"\n"
+"Contributors\n"
+"------------\n"
+"\n"
+"Maintainer\n"
+"----------\n"
+"\n"
+"|company_logo|\n"
+"\n"
+"This module is maintained by the |company|.\n"
+"\n"
+"To contribute to this module, please visit https://www.adhoc.com.ar.\n"
+msgstr ""
 
 #. module: hr_timesheet_attendance_ux
 #: model:ir.model,name:hr_timesheet_attendance_ux.model_account_analytic_line
@@ -28,32 +111,19 @@ msgid "Analytic Line"
 msgstr "Línea analítica"
 
 #. module: hr_timesheet_attendance_ux
-#: model:ir.model,name:hr_timesheet_attendance_ux.model_hr_attendance
-msgid "Attendance"
-msgstr "Asistencia"
-
-#. module: hr_timesheet_attendance_ux
-#: model:ir.ui.menu,name:hr_timesheet_attendance_ux.menu_hr_attendance_my_attendances
-msgid "Check In / Check Out"
-msgstr "Entrada / Salida"
+#: model:ir.module.module,shortdesc:base.module_hr_timesheet_attendance_ux
+msgid "Attendance Timesheet UX"
+msgstr "Asistencias y parte de horas UX"
 
 #. module: hr_timesheet_attendance_ux
 #: model:ir.model.fields,field_description:hr_timesheet_attendance_ux.field_account_analytic_line__display_name
-#: model:ir.model.fields,field_description:hr_timesheet_attendance_ux.field_hr_attendance__display_name
 msgid "Display Name"
-msgstr "Nombre para mostrar"
+msgstr "Mostrar nombre"
 
 #. module: hr_timesheet_attendance_ux
 #: model:ir.model.fields,field_description:hr_timesheet_attendance_ux.field_account_analytic_line__id
-#: model:ir.model.fields,field_description:hr_timesheet_attendance_ux.field_hr_attendance__id
 msgid "ID"
 msgstr "ID"
-
-#. module: hr_timesheet_attendance_ux
-#: model:ir.actions.act_window,name:hr_timesheet_attendance_ux.hr_attendance_action
-#: model:ir.ui.menu,name:hr_timesheet_attendance_ux.my_hr_attendance
-msgid "My Attendances"
-msgstr "Mis asistencias"
 
 #. module: hr_timesheet_attendance_ux
 #: model:ir.actions.act_window,name:hr_timesheet_attendance_ux.action_hr_timesheet_attendance_report_user_week
@@ -62,29 +132,6 @@ msgid "My Timesheet / Attendance"
 msgstr "Mis Parte de Horas / Asistencias"
 
 #. module: hr_timesheet_attendance_ux
-#: model_terms:ir.actions.act_window,help:hr_timesheet_attendance_ux.hr_attendance_action
-msgid ""
-"Please make sure you're using the correct filter if you expected to see any."
-msgstr ""
-"Por favor asegúrate de estar usando el filtro correcto si esperabas ver "
-"alguno"
-
-#. module: hr_timesheet_attendance_ux
-#: model:ir.model.fields,field_description:hr_timesheet_attendance_ux.field_hr_attendance__current_worked_hours
-msgid "Service Hours"
-msgstr "Horas de Servicio"
-
-#. module: hr_timesheet_attendance_ux
 #: model:ir.model.fields,field_description:hr_timesheet_attendance_ux.field_account_analytic_line__task_id
 msgid "Task"
 msgstr "Tarea"
-
-#. module: hr_timesheet_attendance_ux
-#: model_terms:ir.ui.view,arch_db:hr_timesheet_attendance_ux.view_attendance_tree
-msgid "Total service"
-msgstr "Servicio total"
-
-#. module: hr_timesheet_attendance_ux
-#: model_terms:ir.actions.act_window,help:hr_timesheet_attendance_ux.hr_attendance_action
-msgid "Your attendance records will be displayed here."
-msgstr "Tus registros de asistencias serán mostrados acá"
