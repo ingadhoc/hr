@@ -6,9 +6,17 @@ from odoo import api, fields, models
 class AccountAnalyticLine(models.Model):
     _inherit = "account.analytic.line"
 
-    task_id = fields.Many2one(
-        domain="[('company_id', '=', company_id), ('project_id.allow_timesheets', '=', True), ('project_id', '=?', project_id), ('stage_id.fold', '=', False), ('has_template_ancestor', '=', False)]"
-    )
+    def _domain_task_id(self):
+        domain = (
+            "[('company_id', '=', company_id), ('project_id.allow_timesheets', '=', True), "
+            "('project_id', '=?', project_id), ('stage_id.fold', '=', False), ('has_template_ancestor', '=', False)"
+        )
+        # Keep the condition that project_timesheet_holidays adds to the domain this field replaces.
+        if "is_timeoff_task" in self.env["project.task"]._fields:
+            domain += ", ('is_timeoff_task', '=', False)"
+        return domain + "]"
+
+    task_id = fields.Many2one(domain=_domain_task_id)
 
     @api.onchange("employee_id", "date")
     def onchange_compute_hours(self):

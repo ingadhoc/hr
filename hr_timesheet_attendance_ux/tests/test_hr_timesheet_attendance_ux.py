@@ -82,11 +82,18 @@ class TestHrTimesheetAttendanceUx(TestCommonTimesheet):
                 "is_template": True,
             }
         )
-        domain = safe_eval(
-            self.env["account.analytic.line"]._fields["task_id"].domain,
-            {"company_id": self.project_customer.company_id.id, "project_id": self.project_customer.id},
-        )
-        available = Task.search(domain)
+        domain = self.env["account.analytic.line"]._fields["task_id"]._description_domain(self.env)
+        company_id = self.project_customer.company_id.id
+        available = Task.search(safe_eval(domain, {"company_id": company_id, "project_id": self.project_customer.id}))
         self.assertIn(open_task, available)
         self.assertNotIn(folded_task, available)
         self.assertNotIn(template_task, available)
+
+        with self.subTest("time off task is not offered"):
+            if "is_timeoff_task" not in Task._fields:
+                self.skipTest("project_timesheet_holidays is not installed")
+            timeoff_task = self.env.company.leave_timesheet_task_id
+            self.assertTrue(timeoff_task)
+            available = Task.search(safe_eval(domain, {"company_id": company_id, "project_id": False}))
+            self.assertNotIn(timeoff_task, available)
+            self.assertTrue(available, "the domain still offers other tasks")
