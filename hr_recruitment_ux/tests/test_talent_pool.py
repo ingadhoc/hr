@@ -10,7 +10,9 @@ class TestTalentPool(TransactionCase):
         super().setUpClass()
         cls.pool_1, cls.pool_2 = cls.env["hr.talent.pool"].create([{"name": "Pool One"}, {"name": "Pool Two"}])
         cls.job = cls.env["hr.job"].create({"name": "Developer"})
-        cls.applicant = cls.env["hr.applicant"].create({"partner_name": "Pool applicant", "job_id": cls.job.id})
+        cls.applicant = cls.env["hr.applicant"].create(
+            {"partner_name": "Pool applicant", "email_from": "pool.applicant@example.com", "job_id": cls.job.id}
+        )
         cls.cv = cls.env["ir.attachment"].create(
             {
                 "name": "cv.pdf",
@@ -29,7 +31,7 @@ class TestTalentPool(TransactionCase):
         return applicants.pool_applicant_id
 
     def test_add_to_talent_pool_archives_original(self):
-        """Only the applicant copied into a new talent is archived, and attachments are not duplicated."""
+        """Only applicants not yet linked to a talent are archived, and attachments are not duplicated."""
         with self.subTest("new applicant: the talent is created and the original archived with a note"):
             talent = self._add_to_pool(self.applicant, self.pool_1)
             self.assertNotEqual(talent, self.applicant)
@@ -53,3 +55,11 @@ class TestTalentPool(TransactionCase):
             self.assertEqual(result, talent)
             self.assertTrue(linked.active)
             self.assertEqual(talent.talent_pool_ids, self.pool_1 | self.pool_2)
+
+        with self.subTest("applicant linked to the talent only by email: not archived"):
+            same_person = self.env["hr.applicant"].create(
+                {"partner_name": "Pool applicant", "email_from": "pool.applicant@example.com", "job_id": self.job.id}
+            )
+            self.assertTrue(same_person.is_applicant_in_pool)
+            self._add_to_pool(same_person, self.pool_2)
+            self.assertTrue(same_person.active)

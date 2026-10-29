@@ -16,9 +16,9 @@ HR Recruitment UX
 
 This module adds:
 
-* Automatically archives an applicant when adding it to a talent pool creates a new talent,
+* Automatically archives an applicant when it is added to a talent pool for the first time,
   and logs an internal note with the pools, the job position and the stage.
-  Applicants already directly linked to a talent are not archived.
+  Applicants already linked to a talent (directly, or by email, phone or LinkedIn) are not archived.
 * Per-vacancy rotting SLA: allows configuring specific "days to rot" on each job position,
   overriding the stage threshold when needed. When enabled on a stage, applicants of a
   configured position use the position's threshold instead of the stage's.
