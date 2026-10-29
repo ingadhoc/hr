@@ -16,10 +16,12 @@ HR Recruitment UX
 
 This module adds:
 
-* Automatically archives applicants when they are added to a talent pool
+* Automatically archives an applicant when adding it to a talent pool creates a new talent,
+  and logs an internal note with the pools, the job position and the stage.
+  Applicants already directly linked to a talent are not archived.
 * Per-vacancy rotting SLA: allows configuring specific "days to rot" on each job position,
-  overriding the stage threshold when needed. When enabled on a vacancy, applicants in that
-  position use the vacancy's threshold instead of the pipeline stage's.
+  overriding the stage threshold when needed. When enabled on a stage, applicants of a
+  configured position use the position's threshold instead of the stage's.
 
 Installation
 ============
@@ -40,7 +42,8 @@ Usage
 
 To use this module, you need to:
 
-#. Go to ...
+#. In debug mode, go to Recruitment > Configuration > Job Positions > Stages and open a stage.
+#. Enable "¿Días para deteriorarse por posición?" and add the job positions with their days to rot.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot

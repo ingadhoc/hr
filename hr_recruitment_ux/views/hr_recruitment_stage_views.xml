@@ -6,10 +6,10 @@
         <field name="model">hr.recruitment.stage</field>
         <field name="inherit_id" ref="hr_recruitment.hr_recruitment_stage_form"/>
         <field name="arch" type="xml">
-            <field name="rotting_threshold_days" position="after">
+            <xpath expr="//group[@name='configuration']/div[field[@name='rotting_threshold_days']]" position="after">
                 <field name="use_rotting_per_job" invisible="hired_stage"/>
-            </field>
-            <group name="stage_definition" position="after">
+            </xpath>
+            <xpath expr="//group[group[@name='configuration']]" position="after">
                 <field name="job_rotting_ids"
                     invisible="not use_rotting_per_job"
                     nolabel="1">
@@ -18,7 +18,7 @@
                         <field name="rotting_days" string="Días para deteriorarse"/>
                     </list>
                 </field>
-            </group>
+            </xpath>
         </field>
     </record>
 
