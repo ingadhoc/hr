@@ -89,6 +89,15 @@ class TestHrTimesheetAttendanceUx(TestCommonTimesheet):
         self.assertNotIn(folded_task, available)
         self.assertNotIn(template_task, available)
 
+        with self.subTest("task of a project without company is offered"):
+            project = self.env["project.project"].create(
+                {"name": "No company", "allow_timesheets": True, "company_id": False}
+            )
+            task = Task.create({"name": "No company task", "project_id": project.id})
+            self.assertFalse(task.company_id)
+            available = Task.search(safe_eval(domain, {"company_id": company_id, "project_id": project.id}))
+            self.assertIn(task, available)
+
         with self.subTest("time off task is not offered"):
             if "is_timeoff_task" not in Task._fields:
                 self.skipTest("project_timesheet_holidays is not installed")
