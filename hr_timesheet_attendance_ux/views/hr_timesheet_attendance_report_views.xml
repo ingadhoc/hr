@@ -7,7 +7,6 @@
         <field name="domain">[('employee_id.user_id', '=', uid)]</field>
         <field name="view_mode">pivot</field>
         <field name="context">{
-            'search_default_user_id': uid,
             'pivot_column_groupby': [],
             'pivot_measures': ['total_attendance', 'total_timesheet', 'total_difference'],
             'pivot_row_groupby': ['date:day'],
