@@ -30,7 +30,7 @@
         "hr_recruitment",
     ],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "views/hr_recruitment_stage_views.xml",
     ],
     "demo": [],
