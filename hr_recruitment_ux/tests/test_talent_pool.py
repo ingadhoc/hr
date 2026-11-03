@@ -15,7 +15,7 @@ class TestTalentPool(TransactionCase):
         )
         cls.cv = cls.env["ir.attachment"].create(
             {
-                "name": "cv.pdf",
+                "name": "cv.txt",
                 "raw": b"cv",
                 "res_model": "hr.applicant",
                 "res_id": cls.applicant.id,
