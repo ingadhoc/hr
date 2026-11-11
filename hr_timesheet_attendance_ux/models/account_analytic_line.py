@@ -31,6 +31,7 @@ class AccountAnalyticLine(models.Model):
                     ("employee_id", "=", employee_id),
                     ("check_in", ">=", rec.date),
                     ("check_in", "<=", end),
+                    ("state", "!=", "refused"),
                 ]
             )
             domain = [("employee_id", "=", employee_id), ("date", "=", rec.date)]
