@@ -30,6 +30,7 @@
         "hr_timesheet_attendance",
     ],
     "data": [
+        "security/ir.access.csv",
         "views/account_analytic_line_views.xml",
         "views/hr_timesheet_attendance_report_views.xml",
     ],

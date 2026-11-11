@@ -14,13 +14,14 @@
 Attendance Timesheet UX
 =======================
 
-#. Add link from timesheets to timesheet vs attendance analysis
+#. Add link from timesheets to timesheet vs attendance analysis. Timesheet
+   users can read their own lines of that analysis.
 #. Timesheets/All Timesheets odoo menu is set visible only in developer mode.
 #. When you set the employee or the date of a timesheet, the time spent is
    suggested: the attendance hours of that day in the user's timezone (open
-   attendances count up to now), minus the break, minus the time already
-   logged that day. Timesheets from time off requests are not counted as
-   already logged.
+   attendances count up to now, refused ones are left out), minus the break,
+   minus the time already logged that day. Timesheets from time off requests
+   are not counted as already logged.
 #. The task selector of a timesheet does not offer tasks in a folded stage or
    template tasks.
 
