@@ -15,18 +15,22 @@ patch(HrRecruitmentForm.prototype, {
                 }
             });
             phoneEl.addEventListener("input", () => phoneEl.setCustomValidity(""));
+            phoneEl.addEventListener("focusout", () => this.checkPhoneLength(phoneEl));
         }
     },
 
-    async checkRedundant(targetEl, field, messageContainerEl, keepPreviousWarningMessage = false) {
-        if (field === "phone" && targetEl.value && targetEl.value.length < MIN_PHONE_LENGTH) {
-            this.showWarningMessage(
-                targetEl,
-                messageContainerEl,
-                _t("Please enter a valid phone number.")
-            );
+    checkPhoneLength(phoneEl) {
+        if (!this.warningMessageEl) {
             return;
         }
-        return super.checkRedundant(targetEl, field, messageContainerEl, keepPreviousWarningMessage);
+        if (phoneEl.value && phoneEl.value.length < MIN_PHONE_LENGTH) {
+            this.showWarningMessage(
+                phoneEl,
+                this.warningMessageEl,
+                _t("Please enter a valid phone number.")
+            );
+        } else {
+            this.hideWarningMessage(phoneEl, this.warningMessageEl);
+        }
     },
 });
