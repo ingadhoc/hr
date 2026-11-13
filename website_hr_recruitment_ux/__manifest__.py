@@ -19,7 +19,7 @@
 ##############################################################################
 {
     "name": "Website HR Recruitment UX",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Human Resources",
     "author": "ADHOC SA",
     "website": "www.adhoc.com.ar",
@@ -37,6 +37,6 @@
         ],
     },
     "auto_install": True,
-    "installable": False,
+    "installable": True,
     "application": False,
 }
