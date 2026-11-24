@@ -65,6 +65,32 @@ class TestHrTimesheetAttendanceUx(TestCommonTimesheet):
             form = self._new_timesheet_form(self.day)
             self.assertAlmostEqual(form.unit_amount, 5.5)
 
+        with self.subTest("undertime rule attendance is left out, overtime one counts"):
+            Rule = self.env["hr.time.rule"]
+            wet = self.env["hr.work.entry.type"].create({"name": "Rule output", "code": "RULEOUT"})
+            rule_vals = {
+                "calendar_source": "employee",
+                "quantity_period": "day",
+                "work_entry_type_id": wet.id,
+                "condition_work_entry_type_ids": [(4, wet.id)],
+            }
+            undertime = Rule.create({**rule_vals, "name": "Undertime", "threshold_operator": "less_than"})
+            overtime = Rule.create({**rule_vals, "name": "Overtime", "threshold_operator": "exceed"})
+            Attendance = self.env["hr.attendance"].with_context(skip_time_rules=True)
+            for rule, start, stop in ((undertime, 20, 22), (overtime, 22, 23)):
+                Attendance.create(
+                    {
+                        "employee_id": self.empl_employee.id,
+                        "check_in": datetime.combine(self.day, time(start)),
+                        "check_out": datetime.combine(self.day, time(stop)),
+                        "time_rule_id": rule.id,
+                        "state": "validated",
+                    }
+                )
+            form = self._new_timesheet_form(self.day)
+            # 5.5 as before, plus 1 overtime hour; the 2 undertime hours are left out
+            self.assertAlmostEqual(form.unit_amount, 6.5)
+
         with self.subTest("open attendance counts up to now"):
             self.env["hr.attendance"].search([("employee_id", "=", self.empl_employee.id)]).unlink()
             with freeze_time(datetime.combine(self.today, time(15))):

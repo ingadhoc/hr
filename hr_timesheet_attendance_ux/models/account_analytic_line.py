@@ -23,6 +23,14 @@ class AccountAnalyticLine(models.Model):
         user_employee = self.default_get(["employee_id", "user_id"]).get("employee_id")
         hr_attendance = self.env["hr.attendance"]
         now = fields.Datetime.now()
+        # Undertime rules create attendances for missing hours, not worked time. Timesheet users
+        # cannot read time rules, and archived rules keep their attendances.
+        undertime_rules = (
+            self.env["hr.time.rule"]
+            .sudo()
+            .with_context(active_test=False)
+            .search([("threshold_operator", "=", "less_than")])
+        )
         for rec in self:
             end = rec.date + timedelta(hours=23, minutes=59, seconds=59)
             employee_id = rec.employee_id.id or user_employee
@@ -32,6 +40,7 @@ class AccountAnalyticLine(models.Model):
                     ("check_in", ">=", rec.date),
                     ("check_in", "<=", end),
                     ("state", "!=", "refused"),
+                    ("time_rule_id", "not in", undertime_rules.ids),
                 ]
             )
             domain = [("employee_id", "=", employee_id), ("date", "=", rec.date)]
